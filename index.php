@@ -9,6 +9,6 @@ match ($act) {
     'signup' => (new homeController())->signup(),
     'login' => (new homeController())->login(),
     'detail' => (new homeController())->detail($_GET['id']),
-    'thongbao' => (new homeController())->thongbao(),
+    '123123' => (new homeController())->thongbao(),
 };
 ?>
