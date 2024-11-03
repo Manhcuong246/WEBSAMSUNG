@@ -7,7 +7,7 @@ class homeController {
         $this->homeModel = new homeModel();
     }
     public function home() {
-        require_once 'view/home.php';
+        require_once 'view/viewhome/home.php';
     }
 }
 ?>

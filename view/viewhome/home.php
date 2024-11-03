@@ -37,15 +37,7 @@
   font-size: 2rem; 
   color: #333;
 }
-.nav-link{
-   font-size: 14.5px;
-    color: black;}
-.header{
-    height:75px;
-}
-.notibanner{
-    line-height:45px;
-}
+
 .bg-white-gray {
     background-color: #f4f4f4; 
 }
@@ -87,16 +79,7 @@
 .carousel-control-prev, .carousel-control-next {
   padding: 0 !important; 
 }
-.nav-item:hover .dropdown-toggle:hover {
 
-    background-color: black;
-    color: #f4f4f4;
-    border-radius: 40px;
-    
-}
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
 .dropdown-item:hover{
     background-color: white;
     color: black !important;
@@ -117,10 +100,7 @@
     opacity: 0;
     z-index: 5; 
 }
-.header{
-    position: relative;
-    z-index: 6; 
-}
+
 .product-slider {
   width: 100%;
   margin: 0 auto;
@@ -179,17 +159,6 @@
   color: white;
   font-size: 25px;
 
-}
-.slideshow1button button{
-  width: 15% !important; 
-  height: 1.5px !important; 
-  margin: 0 7px !important; 
-  margin-bottom: 3% !important;
-  background-color: #6d6d6d !important; 
-  transition: opacity 0.3s !important; 
-}
-.slideshow1button button:hover {
-  background-color: #343434 !important;
 }
 .carousel-item {
     transition: transform 0.5s ease, opacity 0.5s ease !important; /* Thay đổi thời gian và độ mềm mại */
@@ -250,121 +219,28 @@
   transform: translate(-50%, -30%); 
   opacity: 1;
 }
-
+.end{
+  margin-top: 70px;
+  width: 83%;
+  overflow-wrap: break-word;
+  
+}
+.end pre{
+  white-space: pre-wrap;
+ 
+  font-size: 12px;
+  line-height: 17px;
+  font-family: 'SamsungOne400', arial, sans-serif;
+}
  </style>
 </head>
 <body>
-    <header>
-<div class="container-fluid">
-    <div class="row">
-    
-      <div class="header col-2 p-3 text-center bg-white"><img src="./image/logo.jpg" alt="" class="img-fluid" style=" max-height: 130%;width: auto; "></div>
-      <div class="header col-6 p-3 bg-white " >
-        <nav class="navbar navbar-expand-lg"style="background-color: white; font-size:13px;"  >
-        <div class="container-fluid" >
-          <div class="collapse navbar-collapse" id="navbarNavDropdown"  >
-            <ul class="navbar-nav" >
-        
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Di động
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Ưu đãi 
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 AI
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 TV & AV
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Gia Dụng
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Máy tính
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Màn hình
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Phụ kiện
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                SmartThings
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        </nav>
-    </div>
-      <div class="header col-4   p-3 bg-white">.col</div>
-      <div class="notibanner   col  bg-white-gray text-center text-black " style="font-size:13px;">Tích lũy thêm đến 5% điểm thưởng với tuần lễ samsung &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#66B2FF    ; font-family: 'Roboto', sans-serif;" ><u><a href="#">Tìm hiểu ngay</a></u></span></div>
-    </div>
-  </div>
-</header>
+  <?php require_once "header.php" ?>
 
 <div class="page-overlay"></div>
 
     <div class="container"> 
-        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-interval="2000" data-bs-ride="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
             <div class="slideshow1button carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -426,8 +302,8 @@
     <br><br>
   <div class="container">
     <h2 style="font-size: 28px;">Khám phá bộ siêu phẩm AI</h2> 
-       <div class="product-slider">
-        <div class="product-item" style="position: relative; overflow: hidden; width: 100%; height: 300px;">
+       <div class="product-slider" >
+        <div class="product-item" style="position: relative; overflow: hidden; width: 100%; height: 300px;" >
           <img src="./image/PC_RT42CB6784C3SV.jpg" alt="" class="img-fluid" style=" width: 100%; height: auto; object-fit: cover;position: absolute; top: 0; left: 0;">
           <span class="product-text">Tủ Lạnh Bespoke 406L thêm deal chồng deal tại Shop App từ 29.10</span>
       </div>
@@ -531,6 +407,76 @@
             </div>
    <?php
   require_once "product.php";
+  require_once "search.php";
+  ?>
+  <div class="end container" >
+<pre>
+*Hình ảnh mang tính chất minh họa. Cần đăng nhập tài khoản Samsung để sử dụng một số tính năng AI nhất định.
+
+*Hình ảnh được mô phỏng. Màu tai nghe Galaxy Buds3 Pro có sẵn có thể thay đổi theo quốc gia hoặc nhà mạng. Galaxy Buds3 Pro hỗ trợ các tính năng của Galaxy AI như Interpreter và Live Translate khi được ghép nối với các thiết bị Samsung Galaxy tương thích. Sự sẵn có của các tính năng Galaxy AI có thể thay đổi tùy theo model thiết bị. Vui lòng truy cập trang Samsung.com để biết chi tiết.
+
+*Hình ảnh mang tính chất minh họa. Cần đăng nhậptài khoản Samsung để sử dụng một số tính năng AI nhất định.
+
+*Tính năng Phiên Dịch Trực Tiếp Cuộc Gọi yêu cầu có kết nối mạng và đăng nhập tài khoản Samsung. Phiên Dịch Trực Tiếp Cuộc Gọi chỉ khả dụng trên ứng dụng Samsung Phone được cài đặt sẵn. Một số ngôn ngữ có thể yêu cầu phải tải xuống. Khả dụng với một số ngôn ngữ nhất định. Độ chính xác không được đảm bảo hoàn toàn.
+
+*Galaxy S24+ so với Galaxy S24.
+
+*Màu sắc và kiểu máy có sẵn có thể thay đổi tùy theo quốc gia hoặc nhà mạng.
+
+*Hình ảnh được mô phỏng. Cần đăng nhập tài khoản Samsung cho một số tính năng AI nhất định.
+
+*Yêu cầu đăng nhập tài khoản Samsung đối với một số tính năng AI nhất định.
+
+*Hình ảnh mô phỏng chỉ mang tính chất minh họa. UX/UI thực tế có thể khác.
+
+*S Pen Fold Edition được bán riêng và chỉ tương thích với Z Fold5, Z Fold4 và Z Fold3. Flex mode được hỗ trợ trong phạm vi góc từ 75˚ đến 115˚.
+
+*Hình ảnh mô phỏng. Màu sắc và model máy có thể thay đổi tùy theo quốc gia hoặc nhà cung cấp dịch vụ.
+
+*Galaxy Tab S9, Tab S9+, Tab S9 Ultra được xếp hạng IP68. Dựa trên điều kiện thử nghiệm là ngâm trong nước sâu tới 1,5 mét trong tối đa 30 phút. Không khuyến cáo sử dụng khi tắm biển hoặc bể bơi.
+
+*Hình ảnh mô phỏng chỉ mang tính chất minh họa. Trải nghiệm người dùng/Giao diện người dùng thực tế có thể khác nhau. Buds Controller tương thích với Samsung Galaxy Buds+, Samsung Galaxy Watch4 và các sản phẩm tương ứng sau đây. Tính năng chống ồn chủ động ANC được hỗ trợ trong Galaxy Buds Live và các sản phẩm được phát hành sau đó. Samsung Galaxy S23 Ultra, Samsung Galaxy Watch5, Samsung Galaxy Buds2 Pro được bán riêng. Tính khả dụng của màu sắc, kích thước, sản phẩm và dây đeo đồng hồ có thể thay đổi theo quốc gia hoặc nhà mạng. Wreckfest ⓒ2022 THQ Nordic AB, Sweden. Wreckfest là thương hiệu đã đăng ký của THQ Nordic AB, Sweden. Bảo lưu mọi quyền. Tất cả các thương hiệu, logo và bản quyền khác là tài sản của chủ sở hữu tương ứng. Có sẵn để mua tại Samsung Galaxy Store và các cửa hàng ứng dụng khác ở một số quốc gia. Nội dung trò chơi không phù hợp với trẻ em dưới 3 tuổi.
+
+*Hình ảnh mô phỏng. S Pen Fold Edition được bán riêng và chỉ tương thích với Galaxy Z Fold4 và Galaxy Z Fold3.
+
+*Hình ảnh màn hình đồng hồ được mô phỏng cho mục đích minh họa. Màu sắc, kích thước, kiểu máy và dây đeo đồng hồ có thể thay đổi tùy theo quốc gia hoặc nhà mạng.
+
+*Hình ảnh được mô phỏng. Các màu hiện có của Galaxy Buds2 Pro có thể thay đổi tùy theo quốc gia hoặc nhà mạng.
+
+*Chế độ Flex Mode được hỗ trợ ở các góc từ 75º đến 115º. Google Duo và YouTube là các nhãn hiệu của Google LLC. Một số ứng dụng có thể không hỗ trợ đa nhiệm. UX / UI có thể thay đổi. Hình ảnh mô phỏng.
+
+*Hình ảnh được mô phỏng cho mục đích minh họa. 
+
+*Màu và model máy có thể thay đổi tùy theo quốc gia hoặc nhà cung cấp dịch vụ. 
+
+*Galaxy A53 5G được đánh giá chuẩn IP67. Kết quả dựa trên các điều kiện thử nghiệm ngâm nước ngọt với độ sâu lên đến 1m trong thời gian tối đa là 30 phút. Chỉ an toàn với nước có áp suất thấp. 
+
+*Tính năng Galaxy S22+
+
+*Hình ảnh mang tính mô phỏng. Màu sắc của sản phẩm tùy thuộc vào quốc gia và nhà cung cấp.
+
+*S Pen Fold Edition được bán riêng và chỉ tương thích với Galaxy Z Fold3 5G.
+
+*Hình ảnh hai điện thoại Galaxy Z Fold3 5G và S Pen Fold Edition được mô phỏng cho mục đích minh họa.
+
+*Video về điện thoại Galaxy S21+ 5G màu Tím   Đam Mê và Galaxy S21 5G màu Phantom Pink được mô phỏng nhằm mục đích minh họa.
+
+*Hình ảnh chỉ mang tính chất minh họa. Hình ảnh thực tế có thể khác nhau.
+
+*Hình ảnh mười một chiếc điện thoại Galaxy S20 FE đứng thẳng trong một vòng tròn được mô phỏng cho mục đích minh họa. 
+
+*Hình ảnh được mô phỏng. Màu sắc có thể thay đổi tùy thuộc vào quốc gia hoặc nhà cung cấp. Galaxy A52 and Galaxy A72 được xếp hạng IP67. Dựa trên các điều kiện thử nghiệm ngâm trong nước ở độ sâu lên đến 1 mét trong tối đa 30 phút. Không nên sử dụng ở bãi biển, bể bơi và trong nước xà phòng. Trong trường hợp làm đổ chất lỏng có đường vào điện thoại, vui lòng xả thiết bị bằng nước sạch, tránh tình trạng đọng nước khi ấn vào các phím. Chỉ an toàn đối với áp lực nước thấp. Áp lực nước cao như dòng nước chảy hoặc vòi hoa sen có thể làm hỏng thiết bị.
+
+*Hình ảnh Tủ Lạnh BESPOKE 4 Cửa, BESPOKE 1 Cửa và BESPOKE 2 Cửa Ngăn Đông Dưới được mô phỏng cho mục đích minh họa.
+
+*Tặng kèm bao da kèm bàn phím trị giá 7 Triệu đồng khi mua Galaxy Tab S8 Ultra.
+
+*Không áp dụng cùng các chương trình quà tặng khác.
+
+*Hình ảnh sản phẩm Bespoke mang tính mô phỏng. Màu sắc và model máy có thể thay đổi tùy thuộc vào quốc gia và nhà cung cấp.
+</pre>
+</div>
+<?php
   require_once "footer.php";
   
   ?>
@@ -544,29 +490,13 @@
   $('.product-slider').slick({
     slidesToShow: 5,       
     slidesToScroll: 1,     
-
+   autoplay: true,
     autoplaySpeed: 1500,             
     infinite: true,       
     speed: 500,           
     cssEase: 'ease-in-out' 
   });
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('.nav-item');
-    const overlay = document.querySelector('.page-overlay');
-
-    navItems.forEach(navItem => {
-        navItem.addEventListener('mouseenter', () => {
-            overlay.style.opacity = '1';
-        });
-
-        navItem.addEventListener('mouseleave', () => {
-            overlay.style.opacity = '0';
-        });
-    });
-});
-
-
 </script>
 
 </html> 

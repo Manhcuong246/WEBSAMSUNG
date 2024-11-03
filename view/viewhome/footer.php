@@ -29,7 +29,7 @@ footer .container .table th{
 </style>
 
 <footer>
-  <br><br><br><br><br>
+  <br><br>
       <div class="container" >
         <table class="table table-borderless border-top border-bottom" style="table-layout: fixed;">
           <thead>
@@ -37,7 +37,7 @@ footer .container .table th{
               <th class=" border-end">Sản Phẩm & Dịch Vụ</th>
               <th class=" border-end">Mua Trực Tuyến</th>
               <th class=" border-end">Chương trình đặc quyền</th>
-              <th class=" border-end">Bạn Cần Hỗ Trợ?</th> 
+              <th class=" border-end">Bạn cần hỗ trợ?</th> 
               <th c>Sự bền vững</th> 
             </tr>
           </thead>
@@ -119,6 +119,13 @@ footer .container .table th{
                                   <td class=" border-end"><a href="#">Danh sách yêu thích</a></td>
                                   <td ><a href="#">Quan hệ với nhà đầu tư</a></td>            
                                   </tr>  
+                                  <tr>
+                                  <td class=" border-end"><a href="#"></a></td>
+                                  <td class=" border-end"><a href="#"></a></td>
+                                  <td class=" border-end"><a href="#"></a></td>
+                                  <td class=" border-end"><a href="#"></a></td>
+                                  <td ><a href="#"></a></td>            
+                                  </tr>
                                   <tr class="border-top border-bottom" >
                                     <td colspan="3" style="font-size: 10px;">Bản quyền ©1995-2024 Samsung bảo lưu mọi quyền.<br>
                                       Công ty TNHH Điện Tử Samsung Vina<br>
