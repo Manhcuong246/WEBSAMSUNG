@@ -25,7 +25,7 @@
     }
 </style>
 
-<div  id="searchtool"   class="search container">  
+<div  id="target-section"   class="search container">  
     <h2 style="font-size: 50px;">Chúng tôi có thể giúp bạn tìm kiếm?</h2>
     <div class="areaform">
     <form class="formsearch">
@@ -33,3 +33,4 @@
     </form>
     </div>
 </div>
+<script></script>
