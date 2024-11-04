@@ -281,8 +281,7 @@
                   <button class="btn btn-dark">Mua ngay</button>
                 </div>
               </div>
-            </div>
-          
+            </div>          
             <button style=" width:4%;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
               <span class=" bi bi-arrow-left-circle" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -290,8 +289,7 @@
             <button style=" width:4%;" class=" carousel-control-next py-40" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
               <span class=" bi bi-arrow-right-circle"  aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
-            </button>
-            
+            </button>        
           </div>
     </div>
     <br><br><br>
@@ -336,7 +334,6 @@
                                     Mừng 5 năm<br>Trao tay 5-55 Deal
                                   </div>
                                   <div class="detailslideshow2 detailslideshow2left" >
-                                  
                                     <button >Mua ngay</button>                                   
                                   </div>
                                 </div>
