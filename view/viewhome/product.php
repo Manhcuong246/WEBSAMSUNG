@@ -106,8 +106,9 @@
         background-color: #919191;
      }
 </style><?php
-
 $products = [];
+$products_per_page = 8;
+
 
 foreach ($sanpham as $row) {
     if (!isset($products[$row['id_sanpham']])) {
@@ -118,18 +119,17 @@ foreach ($sanpham as $row) {
             'giagoc_sanpham' => $row['giagoc_sanpham'],
             'anh_sanpham' => $row['anh_sanpham'],
             'mausac_sanpham' => [],
-            'mausac_sanphamtext' => [], 
-            'images' => []  
+            'mausac_sanphamtext' => [],
+            'images' => []
         ];
     }
-
-    
     $products[$row['id_sanpham']]['mausac_sanpham'][] = $row['mausac_sanphamhex'];
-    $products[$row['id_sanpham']]['mausac_sanphamtext'][] = $row['mausac_sanphamtext'];  
-    $products[$row['id_sanpham']]['images'][] = $row['anh_sanpham']; 
+    $products[$row['id_sanpham']]['mausac_sanphamtext'][] = $row['mausac_sanphamtext'];
+    $products[$row['id_sanpham']]['images'][] = $row['anh_sanpham'];
 }
-?>
 
+$displayed_products = array_slice($products, 0, $products_per_page); 
+?>
 
 <div class="container-fluid" style="text-align: center;">
     <h2 style="font-size: 50px;">Khám phá các sản phẩm nổi bật & ưu đãi hấp dẫn</h2>
@@ -137,11 +137,10 @@ foreach ($sanpham as $row) {
 <br><br>
 <div class="product container">
     <div class="row" style="height: 100%;">
-        <?php foreach ($products as $key => $product) { ?>
+        <?php foreach ($displayed_products as $key => $product) { ?>
         <div class="col-3 py-1">
             <div class="productitem">
                 <div id="carouselExampleIndicators<?= $key ?>" class="carousel slide">
-            
                     <div class="buttoncolorproduct carousel-indicators">
                         <?php
                         foreach ($product['mausac_sanpham'] as $index => $color) {
@@ -150,8 +149,6 @@ foreach ($sanpham as $row) {
                         }
                         ?>
                     </div>
-
-           
                     <div class="carousel-inner">
                         <?php
                         foreach ($product['images'] as $index => $image) {
@@ -167,8 +164,8 @@ foreach ($sanpham as $row) {
                     </div>
                 </div>
                 <div class="nameitem">
-    <p><?= mb_strimwidth($product['ten_sanpham'], 0, 50, '...') ?></p>
-</div>
+                    <p><?= mb_strimwidth($product['ten_sanpham'], 0, 50, '...') ?></p>
+                </div>
 
                 <div class="coloritem">
                     <p>Màu sắc: 
@@ -178,11 +175,11 @@ foreach ($sanpham as $row) {
                     </p>
                 </div>
                 <div class="costitem">
-    <p><?= number_format($product['gia_sanpham'], 0, ',', '.') ?> VND</p>
-    <?php if (isset($product['giagoc_sanpham']) && !empty($product['giagoc_sanpham'])): ?>
-        <del><?= number_format($product['giagoc_sanpham'], 0, ',', '.') ?> VND</del>
-    <?php endif; ?>
-</div>
+                    <p><?= number_format($product['gia_sanpham'], 0, ',', '.') ?> VND</p>
+                    <?php if (isset($product['giagoc_sanpham']) && !empty($product['giagoc_sanpham'])): ?>
+                        <del><?= number_format($product['giagoc_sanpham'], 0, ',', '.') ?> VND</del>
+                    <?php endif; ?>
+                </div>
 
                 <div class="buttonitem">
                     <button>Mua ngay</button>
@@ -192,5 +189,6 @@ foreach ($sanpham as $row) {
         <?php } ?>
     </div>
 </div>
+
 
 

@@ -63,7 +63,7 @@
  </style>
 </head>
 <body>
-  <?php require_once "header.php" ?>
+<?php require_once "header.php" ?>
 
 <div class="page-overlay"></div>
   <?php require_once "banner.php" ?>

@@ -8,6 +8,7 @@ class homeController {
     }
     public function home() {
         $sanpham = $this->homeModel->top16Product();
+        $danhmuc = $this->homeModel->danhmuc();
         require_once 'view/viewhome/home.php';
     }
 }

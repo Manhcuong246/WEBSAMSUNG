@@ -15,6 +15,24 @@ ORDER BY RAND() "
 ;
         return $this->conn->query($sql);
     }
-    
+    function danhmuc() {   
+        $sql = " SELECT 
+    danhmuc.id_danhmuc,
+    danhmuc.ten_danhmuc,
+    sanpham.id_sanpham,
+    sanpham.ten_sanpham
+FROM 
+    danhmuc
+LEFT JOIN 
+    sanpham ON danhmuc.id_danhmuc = sanpham.id_danhmuc
+ORDER BY 
+    danhmuc.id_danhmuc;
+
+;
+ "
+
+;
+        return $this->conn->query($sql);
+    }
 
 }
