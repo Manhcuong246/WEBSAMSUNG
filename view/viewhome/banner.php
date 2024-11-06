@@ -50,7 +50,6 @@ width: 150px;
 margin-top: 20px;
 }
 .slideshow1button button{
-  width: 15% !important; 
   height: 2px !important; 
   margin: 0 7px !important; 
   margin-bottom: 3% !important;
@@ -76,11 +75,12 @@ background-color: #e0e0e0;
 }
 .carousel-indicators button {
     background-color: rgb(69, 69, 69) !important; 
-    width: 100px !important;
+    width: 25% !important;
 }
 .carousel-control-prev {
   left: 0 !important; 
 }
+
 </style>
 
 <div class="container"> 

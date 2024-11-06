@@ -56,7 +56,7 @@
     }
 
     .buttoncolorproduct button{ 
-        opacity: 0.7 !important;
+        opacity: 0.5 !important;
       transition: transform 0.3s ease !important;
        height: 20px !important;
        width: 20px !important;
@@ -66,7 +66,7 @@
  
 .buttoncolorproduct{
     position: absolute;
-    top: 340px;
+    top: 350px;
     gap:20px;
 }
 .buttoncolorproduct button.active {
@@ -106,7 +106,7 @@
         background-color: #919191;
      }
 </style><?php
-// Giả sử $sanpham là kết quả từ truy vấn SQL kết hợp hai bảng
+
 $products = [];
 
 foreach ($sanpham as $row) {
@@ -130,9 +130,8 @@ foreach ($sanpham as $row) {
 }
 ?>
 
-<!-- HTML phần hiển thị -->
+
 <div class="container-fluid" style="text-align: center;">
-    <br><br><br>
     <h2 style="font-size: 50px;">Khám phá các sản phẩm nổi bật & ưu đãi hấp dẫn</h2>
 </div>
 <br><br>
@@ -142,7 +141,7 @@ foreach ($sanpham as $row) {
         <div class="col-3 py-1">
             <div class="productitem">
                 <div id="carouselExampleIndicators<?= $key ?>" class="carousel slide">
-                    <!-- Các nút chuyển màu -->
+            
                     <div class="buttoncolorproduct carousel-indicators">
                         <?php
                         foreach ($product['mausac_sanpham'] as $index => $color) {
@@ -152,7 +151,7 @@ foreach ($sanpham as $row) {
                         ?>
                     </div>
 
-                    <!-- Các hình ảnh sản phẩm -->
+           
                     <div class="carousel-inner">
                         <?php
                         foreach ($product['images'] as $index => $image) {
@@ -168,8 +167,9 @@ foreach ($sanpham as $row) {
                     </div>
                 </div>
                 <div class="nameitem">
-                    <p><?= $product['ten_sanpham'] ?></p>
-                </div>
+    <p><?= mb_strimwidth($product['ten_sanpham'], 0, 50, '...') ?></p>
+</div>
+
                 <div class="coloritem">
                     <p>Màu sắc: 
                         <span class="myText" >
