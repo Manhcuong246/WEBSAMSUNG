@@ -27,12 +27,18 @@
     font-family: 'SamsungOne400', arial, sans-serif;
 }
 .dropdown-item:hover {
-    background-color: white;
+  background-color: unset;
     color: black !important;
     font-weight: bold !important;
 }
 .dropdown-toggle::after {
     display: none;
+}
+.dropdown-menu{
+border: none !important;
+border-radius: 20px;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
 }
 </style>
 
