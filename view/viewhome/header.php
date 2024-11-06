@@ -147,3 +147,19 @@ foreach ($danhmuc as $row) {
     </div>
 </div>
 </header>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    const overlay = document.querySelector('.page-overlay');
+
+    navItems.forEach(navItem => {
+        navItem.addEventListener('mouseenter', () => {
+            overlay.style.opacity = '1';
+        });
+
+        navItem.addEventListener('mouseleave', () => {
+            overlay.style.opacity = '0';
+        });
+    });
+});
+</script>
