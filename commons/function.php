@@ -1,6 +1,6 @@
 <?php
     function connectDB(){
-        $host="mysql:host=localhost;dbname=duanmau;charset=utf8";
+        $host="mysql:host=localhost;dbname=duan1;charset=utf8";
         $user="cuongnm";
         $pass="01687835041aA@";
         try {

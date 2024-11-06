@@ -18,43 +18,24 @@ border-radius: 40px;
 .nav-item.dropdown:hover .dropdown-menu {
 display: block;
 }
-.slideshow1button button{
-  width: 15% !important; 
-  height: 1.5px !important; 
-  margin: 0 7px !important; 
-  margin-bottom: 3% !important;
-  background-color: #6d6d6d !important; 
-  transition: opacity 0.3s !important; 
-}
-.slideshow1button button:hover {
-  background-color: #343434 !important;
-}
+
 .notibanner{
     line-height:45px;
 }
-
-.carousel-caption{
-    text-align: left;
-    left: 5%; top: 30%;
-    color:black;
-}   
-.carousel-caption h5{
-
-    font-size: 38px ;
-}
-.carousel-caption button{
-   border-radius: 30px;
-}
-.carousel-caption button:hover{
-    background-color: rgb(86, 86, 86) !important; 
-   
-}
-.carousel-caption p{
-    font-family: 'SamsungOne400', arial, sans-serif;
-    font-size: 22px ;
-}
 .carousel-item {
     transition: transform 0.5s ease, opacity 0.5s ease !important; /* Thay đổi thời gian và độ mềm mại */
+}
+.dropdown-item{
+    font-size: 12px;
+    font-family: 'SamsungOne400', arial, sans-serif;
+}
+.dropdown-item:hover{
+    background-color: white;
+    color: black !important;
+    font-weight: bold !important;
+}
+.dropdown-toggle::after {
+    display: none;
 }
 </style>
 

@@ -7,6 +7,7 @@ class homeController {
         $this->homeModel = new homeModel();
     }
     public function home() {
+        $sanpham = $this->homeModel->top16Product();
         require_once 'view/viewhome/home.php';
     }
 }

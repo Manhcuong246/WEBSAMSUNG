@@ -12,9 +12,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-
-
  <style>
 
 @font-face {
@@ -25,18 +22,10 @@
     font-family: 'SamsungOne400';
     src: url('./font/SamsungOne-400.ttf') format('truetype'); 
 }
-.dropdown-item{
-    font-size: 12px;
-    font-family: 'SamsungOne400', arial, sans-serif;
-}
+
     body{
         font-family: 'SamsungOne', arial, sans-serif;
     }
-    .carousel-control-prev .bi-arrow-left-circle,
-.carousel-control-next .bi-arrow-right-circle {
-  font-size: 2rem; 
-  color: #333;
-}
 
 .bg-white-gray {
     background-color: #f4f4f4; 
@@ -45,49 +34,7 @@
 
     max-width: 96%;
 }
-.carousel-caption{
-    text-align: left;
-    left: 5%; top: 30%;
-    color:black;
-}   
-.carousel-caption h5{
 
-    font-size: 38px ;
-}
-.carousel-caption button{
-   border-radius: 30px;
-}
-.carousel-caption button:hover{
-    background-color: rgb(86, 86, 86) !important; 
-   
-}
-.carousel-caption p{
-    font-family: 'SamsungOne400', arial, sans-serif;
-    font-size: 22px ;
-}
-.carousel-indicators button {
-    background-color: rgb(69, 69, 69) !important; 
-    width: 100px !important;
-}
-.carousel-control-prev {
-  left: 0 !important; 
-}
-
-.carousel-control-next {
-  right: 0 !important; 
-}
-.carousel-control-prev, .carousel-control-next {
-  padding: 0 !important; 
-}
-
-.dropdown-item:hover{
-    background-color: white;
-    color: black !important;
-    font-weight: bold !important;
-}
-.dropdown-toggle::after {
-    display: none;
-}
 .page-overlay {
   pointer-events: none;
    transition: all 0.3s ease;
@@ -99,125 +46,6 @@
     background-color: rgba(0, 0, 0,0.7); 
     opacity: 0;
     z-index: 5; 
-}
-
-.product-slider {
-  width: 100%;
-  margin: 0 auto;
-}
-.product-item {
-  background: #f7f7f7;
-  padding: 20px;
-  text-align: center;
-  font-size: 16px;
-  border-radius: 30px;
-  height: 300px;
-  margin: 10px;
-}
-.product-item {
-  width: 100px; 
-  height: 300px;
-  position: relative;
-}
-
-.product-text {
-  position: absolute;
-  bottom: 0; 
-  left: 0%;
-  padding: 15px; 
-  width: 100%; 
-  text-align: center;
-}
-.product-item:hover img{
-  transform: scale(1.04);
-}
-.product-item img{
-  transition: transform 0.2s ease;
-}
-.contentslideshow1 img{
-  transition: transform 0.2s ease;
-}
-.contentslideshow1:hover img{
-  transform: scale(1.09);
-  
-}
-.contentslideshow1 img{
-  transform: scale(1.06);
-  
-}
-.tuanlesamsung{
-  width: 95%;
-}
-.dieuhuong{
-  top: 0; 
-  bottom: auto; 
-  transform: translateY(-50%); 
-  height: 50px; 
-  
-}
-.detailslideshow2{
-  color: white;
-  font-size: 25px;
-
-}
-.carousel-item {
-    transition: transform 0.5s ease, opacity 0.5s ease !important; /* Thay đổi thời gian và độ mềm mại */
-}
-.detailslideshow2right p{
-  position: absolute; top:73%; left: 50%; transform: translate(-50%, -50%); text-align: center;
-  width: 300px;
-  font-size: 18px;
-}
-.detailslideshow2left button{
-  position: absolute;   
-   top:85%;
-   left: 50%;
-   transform: translate(-50%, 140%); 
-   text-align: center;
-  width: 25%; 
-  height: 40px;
-  font-size: 14px;
-  background-color: white;
-  border-radius: 40px;
-  transition: all 0.3s ease;
-  border: none;
-  opacity: 0;
-  
-}
-.detailslideshow2left button:hover{
-  background-color: #dedede;
-  
-}
-.contentslideshow1{
-  cursor: pointer;
-}
-.contentslideshow1:hover .detailslideshow2left button{
-  
-  transform: translate(-50%, 90%); 
-  opacity: 1;
-}
-.detailslideshow2right button{
-   position: absolute;   
-   top:85%;
-   left: 50%;
-   transform: translate(-50%, 0%); 
-   text-align: center;
-  width: 35%; 
-  height: 40px;
-  font-size: 14px;
-  background-color: white;
-  border-radius: 40px;
-  transition: all 0.3s ease;
-  border: none;
-  opacity: 0;
-}
-
-.detailslideshow2right button:hover{
- background-color: #dedede;
-}
-.buttonslideshow2right:hover .detailslideshow2right button{
-  transform: translate(-50%, -30%); 
-  opacity: 1;
 }
 .end{
   margin-top: 70px;
@@ -238,171 +66,19 @@
   <?php require_once "header.php" ?>
 
 <div class="page-overlay"></div>
+  <?php require_once "banner.php" ?>
 
-    <div class="container"> 
-        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
-            <div class="slideshow1button carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./image/24_SW_Main_KV_Hero_PC.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Tuần siêu trải nghiệm<br> Kỉ niệm siêu đột phá</h5> <br>
-                  <p>Tận hưởng tuần lễ deal hời đến 30% <br> Duy nhất từ 21.10 đến 01.11.2025</p>
-                  <button class="btn btn-dark">Mua ngay</button>
-
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="./image/kv-shop-app-pc.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Mở siêu ứng dụng<br>Vocher trao tay</h5> <br>
-                  <p>Ưu đãi đến 1 triệu cho đơn đầu tiên trên 8 triệu,<br>thêm ưu đãi với Samsung Rewards</p>
-                  <button class="btn btn-dark">Tải ngay</button>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="./image/KV_55units_1440x640_PC.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Mừng 55 năm <br>Trao tay 5-55 Deal</h5> <br>
-                  <p>Đại tiếc sinh nhật Samsung,<br>bùng nổ ưu đãi giành cho bạn</p>
-                  <button class="btn btn-dark">Mua ngay</button>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="./image/KV_Color_Themed_A_1440x640_PC.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Chọn màu đúng tông <br>Sống bật phong cách</h5> <br>
-                  <p>Khám phá và chọn thêm sản phẩm<br> theo phong cách của bạn<br> trong bộ siêu phẩm Samsung</p>
-                  <button class="btn btn-dark">Mua ngay</button>
-                </div>
-              </div>
-            </div>          
-            <button style=" width:4%;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class=" bi bi-arrow-left-circle" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button style=" width:4%;" class=" carousel-control-next py-40" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class=" bi bi-arrow-right-circle"  aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>        
-          </div>
-    </div>
     <br><br><br>
     <div class="container-fluid" style="text-align: center;"> 
         <h2 style="font-size: 50px;">Vũ trụ công nghệ</h2> 
         <p style="font-size: 20px;font-family: samsungOne400;">Mừng sinh nhật Shop App, tận hưởng ưu đãi từ 29-31.10</p>
     </div>
     <br><br>
-  <div class="container">
-    <h2 style="font-size: 28px;">Khám phá bộ siêu phẩm AI</h2> 
-       <div class="product-slider" >
-        <div class="product-item" style="position: relative; overflow: hidden; width: 100%; height: 300px;" >
-          <img src="./image/PC_RT42CB6784C3SV.jpg" alt="" class="img-fluid" style=" width: 100%; height: auto; object-fit: cover;position: absolute; top: 0; left: 0;">
-          <span class="product-text">Tủ Lạnh Bespoke 406L thêm deal chồng deal tại Shop App từ 29.10</span>
-      </div>
-      
-        <div class="product-item" style="position: relative; ">  <span class="product-text">Sản phẩm 1</span></div>
-        <div class="product-item" style="position: relative; ">  <span class="product-text">Sản phẩm 1</span></div>
-        <div class="product-item" style="position: relative; ">  <span class="product-text">Sản phẩm 1</span></div>
-        <div class="product-item" style="position: relative; ">  <span class="product-text">Sản phẩm 1</span></div>
-        <div class="product-item" style="position: relative; ">  <span class="product-text">Sản phẩm 1</span></div>
-        <div class="product-item" style="position: relative; ">  <span class="product-text">Sản phẩm 1</span></div>
-      </div>
-      <br><br><br>
-      <div class="container-fluid" style="text-align: center;"> 
-        <h2 style="font-size: 40px;">Siêu phẩm công nghệ cho Tuần lễ Samsung</h2> <br><br><br>
-    </div>
-         </div>
-                <div class="tuanlesamsung container-fluid" style="text-align: center;">   
-                  <div class="container">
-                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-interval="2000" data-bs-ride="carousel">
-                        <div class="dieuhuong carousel-indicators" >
-                        
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active" > 
-                            <div class="row" style="width: 100%;height: auto; "> 
-                              <div class="col-6">
-                                <div class="contentslideshow1" style="overflow: hidden; border-radius: 20px; height: 100%; width: 100%; position: relative;">
-                                  <img src="./image/bigbanner-PC.png" alt="" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
-                                  <div class="detailslideshow2" style="position: absolute; left: 50%; bottom: 5%; transform: translate(-50%, -50%); text-align: center;">
-                                    Mừng 5 năm<br>Trao tay 5-55 Deal
-                                  </div>
-                                  <div class="detailslideshow2 detailslideshow2left" >
-                                    <button >Mua ngay</button>                                   
-                                  </div>
-                                </div>
-                              </div>
-                              
-                            <div class="col-6 " > 
-                              <div class="row" style="width: 100%; height: 100%;padding: 0px; " >
-                                <div class="col-6 p-1 pt-0 ps-0" >
-                                  <div class="buttonslideshow2right contentslideshow1" style="overflow: hidden; border-radius: 20px; height: 100%; width: 100%; position: relative;">
-                                    <img src="./image/Flip6_M1D5_PC-v2.png" alt="" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
-                                    <div class="detailslideshow2 detailslideshow2right">
-                                      <p>Galaxy Z Flip 6 mua 1 được 5! (*)</p>                                    
-                                    </div>
-                                    <div class="detailslideshow2 detailslideshow2right" >
-                                      <button >Mua ngay</button>                                   
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <div class="col-6 p-1 pt-0 pe-0">
-                                  <div class=" buttonslideshow2right contentslideshow1" style="overflow: hidden; border-radius: 20px; height: 100%; width: 100%; position: relative;">
-                                    <img src="./image/HW_LS60D_PC.png" alt="" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
-                                    <div class="detailslideshow2 detailslideshow2right">
-                                      <p>Loa tranh giảm thêm 5% khi thanh toán online</p>
-                                    </div>
-                                    <div class="detailslideshow2 detailslideshow2right" >
-                                      <button >Mua ngay</button>                                   
-                                    </div>
-                                  </div>
-                                </div>  
-                                <div class="col-6 p-1 pb-0 ps-0">
-                                  <div class="buttonslideshow2right contentslideshow1" style="overflow: hidden; border-radius: 20px; height: 100%; width: 100%; position: relative;">
-                                    <img src="./image/Watch7_PC-v2.png " alt="" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
-                                    <div class="detailslideshow2 detailslideshow2right">
-                                      <p>Galaxy Watch 7 mua kèm dây đeo giá chỉ 55k</p>
-                                    </div>
-                                    <div class="detailslideshow2 detailslideshow2right" >
-                                      <button >Mua ngay</button>                                   
-                                    </div>
-                                  </div>
-                                </div> <div class="col-6 p-1 pb-0 pe-0">
-                                  <div class="buttonslideshow2right contentslideshow1" style="overflow: hidden; border-radius: 20px; height: 100%; width: 100%; position: relative;">
-                                    <img src="./image/VS15A60AGR7_PC-v2.png" alt="" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
-                                    <div class="detailslideshow2 detailslideshow2right">
-                                      <p>Máy hút bụi giảm 5% khi thanh toán online</p>
-
-                                    </div>
-                                    <div class="detailslideshow2 detailslideshow2right" >
-                                      <button >Mua ngay</button>                                   
-                                    </div>
-                                  </div>
-                                </div>
-                               </div>
-                            </div>
-                          </div>
-                        
-                          </div>
-                
-                        </div>
-
-                        
-                      </div>
-                </div>    
-              </div>
-              <div class="container-fluid" style="text-align: center;"> 
-               <br><br><br>
-                <h2 style="font-size: 50px;">Khám phá các sản phẩm nổi bật & ưu đãi hấp dẫn</h2> 
-            </div>
+  
    <?php
+   require_once "slideshowproduct1.php";
+   require_once "slideshowproduct2.php";
+   require_once "slideshowproduct3.php";
   require_once "product.php";
   require_once "search.php";
   ?>
@@ -481,19 +157,5 @@
 
 
 </body>
-<script>
- 
-    $(document).ready(function(){
-  $('.product-slider').slick({
-    slidesToShow: 5,       
-    slidesToScroll: 1,     
-   autoplay: true,
-    autoplaySpeed: 1500,             
-    infinite: true,       
-    speed: 500,           
-    cssEase: 'ease-in-out' 
-  });
-});
-</script>
 
 </html> 
