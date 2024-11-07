@@ -40,6 +40,21 @@ border-radius: 20px;
 box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 
 }
+.account{
+right:-20px;
+
+}
+.account a{
+  font-size: 15px;
+  line-height: 2;
+}
+.account hr{
+  width:90%;
+  position:relative;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
 </style>
 
 <header>
@@ -80,7 +95,7 @@ foreach ($danhmuc as $row) {
                         <ul class="navbar-nav">
                             <?php foreach ($categories as $category) { ?>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
                                         <?= htmlspecialchars($category['ten_danhmuc']) ?>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -92,7 +107,7 @@ foreach ($danhmuc as $row) {
                             <?php } ?>
                      
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
                                     SmartThings
                                 </a>
                             </li>
@@ -108,7 +123,7 @@ foreach ($danhmuc as $row) {
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
                                     Hỗ trợ
                                 </a>
                                 <ul class="dropdown-menu">
@@ -119,24 +134,34 @@ foreach ($danhmuc as $row) {
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
                                     Doanh Nghiệp
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#target-section" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle a" href="#target-section" role="button"  aria-expanded="false">
                                     <i class="bi bi-search"></i>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
                                     <i class="bi bi-cart"></i>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
                                     <i class="bi bi-person"></i>
                                 </a>
+                                <ul class="dropdown-menu account">
+                                    <li><a class="dropdown-item" href="#">Đăng kí/Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="#">Vì sao nên tạo Samsung account ?</a></li>
+                                    <hr>
+                                    <li><a class="dropdown-item" href="#">Trang của tôi</a></li>
+                                    <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
+                                    <li><a class="dropdown-item" href="#">Đăng kí sản phẩm</a></li>
+                                    <li><a class="dropdown-item" href="#">Samsung Rewards</a></li>
+                                    <li><a class="dropdown-item" href="#">Samsung Members</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -168,4 +193,11 @@ foreach ($danhmuc as $row) {
         });
     });
 });
+document.querySelectorAll('.dropdown-toggle').forEach(function(element) {
+    element.addEventListener('click', function(e) {
+        e.preventDefault(); // Ngăn chặn sự kiện click mặc định
+        e.stopPropagation(); // Ngăn chặn bubble của sự kiện click
+    });
+});
+
 </script>
