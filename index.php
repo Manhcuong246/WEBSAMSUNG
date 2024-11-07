@@ -6,6 +6,7 @@ require_once 'model/homeModel.php';
 $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new homeController())->home(),
+    'login' => (new homeController())->login(),
    
 };
 ?>

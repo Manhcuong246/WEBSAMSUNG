@@ -153,7 +153,7 @@ foreach ($danhmuc as $row) {
                                     <i class="bi bi-person"></i>
                                 </a>
                                 <ul class="dropdown-menu account">
-                                    <li><a class="dropdown-item" href="#">Đăng kí/Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="?act=login">Đăng kí/Đăng nhập</a></li>
                                     <li><a class="dropdown-item" href="#">Vì sao nên tạo Samsung account ?</a></li>
                                     <hr>
                                     <li><a class="dropdown-item" href="#">Trang của tôi</a></li>
@@ -169,12 +169,12 @@ foreach ($danhmuc as $row) {
             </nav>
         </div>
 
-        <div class="notibanner col bg-white-gray text-center text-black" style="font-size:13px;">
+        <!-- <div class="notibanner col bg-white-gray text-center text-black" style="font-size:13px;">
             Tích lũy thêm đến 5% điểm thưởng với tuần lễ samsung &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span style="color:#66B2FF; font-family: 'Roboto', sans-serif;">
                 <u><a href="#">Tìm hiểu ngay</a></u>
             </span>
-        </div>
+        </div> -->
     </div>
 </div>
 </header>

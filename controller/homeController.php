@@ -11,5 +11,8 @@ class homeController {
         $danhmuc = $this->homeModel->danhmuc();
         require_once 'view/viewhome/home.php';
     }
+    public function login() {
+        require_once 'view/viewlogin/login.php';
+    }
 }
 ?>
