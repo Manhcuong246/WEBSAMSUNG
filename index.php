@@ -7,6 +7,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new homeController())->home(),
     'login' => (new homeController())->login(),
-   
+    'signup' => (new homeController())->signup(),
+     'chitietsp' => (new homeController())->chitietsp(),
 };
 ?>

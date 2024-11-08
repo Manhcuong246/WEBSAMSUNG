@@ -12,7 +12,18 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+function scrollToCenter() {
+    const pageHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    
+    const centerPosition = (pageHeight - windowHeight) / 2; 
+    window.scrollTo(0, centerPosition);
+}
 
+
+window.onload = scrollToCenter;
+</script>
     <style>
         .header {
             height: 80px;
@@ -83,7 +94,7 @@
 
         .textlogin {
             font-family: roboto;
-            color: #D3D3D3;
+            color: gray;
             font-size: 18px;
             float: left;
         }
@@ -215,7 +226,7 @@
                             </div>
                             <div class="signup">
                                <p><a href="#"><u>Tìm ID</u></a></p>
-                               <p><a href="#"><u>Tạo tài khoản</u></a></p>                          
+                               <p><a href="?act=signup"><u>Tạo tài khoản</u></a></p>                          
                             </div>
                             <div class="buttondecor">
                             <img src="./image/lologoogle-180x180.png" alt="">

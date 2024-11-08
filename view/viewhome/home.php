@@ -25,6 +25,7 @@
 
     body{
         font-family: 'SamsungOne', arial, sans-serif;
+      
     }
 
 .bg-white-gray {

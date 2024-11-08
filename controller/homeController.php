@@ -14,5 +14,12 @@ class homeController {
     public function login() {
         require_once 'view/viewlogin/login.php';
     }
+    public function signup() {
+        require_once 'view/viewsignup/signup.php';
+    }
+    public function chitietsp() {
+        $danhmuc = $this->homeModel->danhmuc();
+        require_once 'view/viewchitietsanpham/chitietsanpham.php';
+    }
 }
 ?>
