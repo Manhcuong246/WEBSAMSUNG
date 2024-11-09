@@ -36,18 +36,7 @@
     max-width: 96%;
 }
 
-.page-overlay {
-  pointer-events: none;
-   transition: all 0.3s ease;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0,0.7); 
-    opacity: 0;
-    z-index: 5; 
-}
+
 .end{
   margin-top: 70px;
   width: 83%;
@@ -66,7 +55,7 @@
 <body>
 <?php require_once "header.php" ?>
 
-<div class="page-overlay"></div>
+
   <?php require_once "banner.php" ?>
 
     <br><br><br>

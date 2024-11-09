@@ -182,7 +182,7 @@ $displayed_products = array_slice($products, 0, $products_per_page);
                 </div>
 
                 <div class="buttonitem">
-                    <button>Mua ngay</button>
+                  <a href="?act=chitietsp&id=<?= $product['id_sanpham'] ?>">  <button>Mua ngay</button></a>
                 </div>
             </div>
         </div>

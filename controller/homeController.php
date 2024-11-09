@@ -17,9 +17,11 @@ class homeController {
     public function signup() {
         require_once 'view/viewsignup/signup.php';
     }
-    public function chitietsp() {
+    public function chitietsp($id) {
         $danhmuc = $this->homeModel->danhmuc();
+        $detail = $this->homeModel->findId($id);
         require_once 'view/viewchitietsanpham/chitietsanpham.php';
     }
+  
 }
 ?>

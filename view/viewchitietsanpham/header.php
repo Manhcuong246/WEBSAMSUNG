@@ -56,7 +56,18 @@ right:-20px;
   left: 50%;
   transform: translate(-50%,0);
 }
-
+.page-overlay {
+  pointer-events: none;
+   transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.7); 
+    opacity: 0;
+    z-index: 5; 
+}
 </style>
 
 <header>
@@ -84,11 +95,11 @@ foreach ($danhmuc as $row) {
     }
 }
 ?>
-
+<div class="page-overlay"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="header col-2 p-3 text-center bg-white">
-            <img src="./image/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 130%; width: auto;">
+           <a href="?act=/"><img src="./image/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 130%; width: auto;"></a>
         </div>
         <div class="header col-6 p-3 bg-white">
             <nav class="navbar navbar-expand-lg" style="background-color: white; font-size:13px;">
@@ -171,12 +182,6 @@ foreach ($danhmuc as $row) {
             </nav>
         </div>
 
-        <!-- <div class="notibanner col bg-white-gray text-center text-black" style="font-size:13px;">
-            Tích lũy thêm đến 5% điểm thưởng với tuần lễ samsung &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="color:#66B2FF; font-family: 'Roboto', sans-serif;">
-                <u><a href="#">Tìm hiểu ngay</a></u>
-            </span>
-        </div> -->
     </div>
 </div>
 </header>
