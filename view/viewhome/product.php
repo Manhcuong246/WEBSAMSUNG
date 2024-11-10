@@ -107,6 +107,7 @@
      }
 </style><?php
 $products = [];
+
 $products_per_page = 8;
 
 
@@ -186,7 +187,7 @@ $displayed_products = array_slice($products, 0, $products_per_page);
                 </div>
             </div>
         </div>
-        <?php } ?>
+        <?php  } ?>
     </div>
 </div>
 

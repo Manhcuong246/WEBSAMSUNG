@@ -16,13 +16,13 @@ LEFT JOIN mausacsanpham ON sanpham.id_sanpham = mausacsanpham.id_sanpham
 ORDER BY RAND() ";
         return $this->conn->query($sql);
     }
-    function findId($id) {
-        $sql = "SELECT * 
+              function findId($id) {
+              $sql = "SELECT * 
                 FROM sanpham 
                 INNER JOIN mausacsanpham 
                 ON sanpham.id_sanpham = mausacsanpham.id_sanpham 
                 WHERE sanpham.id_sanpham = $id";
-        return $this->conn->query($sql)->fetch();
+               return $this->conn->query($sql)->fetchAll();
     }
     
     function danhmuc()

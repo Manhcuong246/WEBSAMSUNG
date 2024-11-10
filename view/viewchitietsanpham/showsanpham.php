@@ -140,6 +140,7 @@
     .detailpro {
         overflow: hidden;
         overflow-y: auto;
+   
         scroll-behavior: smooth;
     }
 
@@ -308,28 +309,51 @@
         justify-content: center;
     }
 </style>
+<?php
+$result = [];
 
+foreach ($detail as $item) {
+    $id = $item['id_sanpham'];
+
+    if (!isset($result[$id])) {
+        $result[$id] = [
+            'id_sanpham' => $item['id_sanpham'],
+            'ten_sanpham' => $item['ten_sanpham'],
+            'gia_sanpham' => $item['gia_sanpham'],
+            'giagoc_sanpham' => $item['giagoc_sanpham'],
+            'anh_sanpham' => $item['anh_sanpham'],
+            'mausac_sanpham' => [],
+            'mausac_sanphamtext' => [],
+            'images' => []
+        ];
+    }
+
+    // Thêm màu sắc và ảnh vào các mảng
+    $result[$id]['mausac_sanpham'][] = $item['mausac_sanphamhex'];
+    $result[$id]['mausac_sanphamtext'][] = $item['mausac_sanphamtext'];
+    $result[$id]['images'][] = $item['anh_sanpham'];
+} ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 title">
             <div class="row">
                 <div class="col-8 titleleft">
                     <div class="titlenameproduct">
-                        <p><?= mb_strimwidth($detail['ten_sanpham'], 0, 75, '...') ?></p>
+                        <p><?= mb_strimwidth($detail[0]['ten_sanpham'], 0, 75, '...') ?></p>
 
-                        </p>
+                 
                     </div>
                 </div>
                 <div class="col-4 titleright">
                     <div class="row">
                         <div class="costproduct  col-6">
                             <div class="costtop col-12">
-                                <p><?= number_format($detail['gia_sanpham'], 0, ',', '.') ?> ₫</p>
+                                <p><?= number_format($detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫</p>
                             </div>
                             <div class="costbot col-12">
                                 <?php
-                                if (isset($detail['giagoc_sanpham'])) {
-                                    echo "<p><del>" . number_format($detail['giagoc_sanpham'], 0, ',', '.') . " ₫</del> Tiết kiệm đến " . number_format($detail['giagoc_sanpham'] - $detail['gia_sanpham'], 0, ',', '.') . " ₫</p>";
+                                if (isset($detail[0]['giagoc_sanpham'])) {
+                                    echo "<p><del>" . number_format($detail[0]['giagoc_sanpham'], 0, ',', '.') . " ₫</del> Tiết kiệm đến " . number_format($detail[0]['giagoc_sanpham'] - $detail[0]['gia_sanpham'], 0, ',', '.') . " ₫</p>";
                                 } else {
                                     echo "<p>Mừng mùa lễ hội siêu sale, chốt đơn ngay   </p>";
                                 }
@@ -351,16 +375,16 @@
                         <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
 
-                            
-                            <?php
-                            $image = explode(';', $detail['anhslideshow_sanpham']);
-                            foreach ($image as $index => $image_name) {        
-                                $activeClass = ($index === 0) ? 'active' : ''; 
-                                echo " <div class='carousel-item $activeClass'><img style='object-fit: cover;' src='./image/" . $image_name . "' class='d-block w-100' alt='Product Image " . ($index + 1) . "'>  </div>";
-                            }
-                            ?>
-                              
-                            
+
+                                <?php
+                                $image = explode(';', $detail[0]['anhslideshow_sanpham']);
+                                foreach ($image as $index => $image_name) {
+                                    $activeClass = ($index === 0) ? 'active' : '';
+                                    echo " <div class='carousel-item $activeClass'><img style='object-fit: cover;' src='./image/" . $image_name . "' class='d-block w-100' alt='Product Image " . ($index + 1) . "'>  </div>";
+                                }
+                                ?>
+
+
 
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
@@ -376,8 +400,8 @@
                         <div class="imgabcxyz d-flex justify-content-center mt-3">
 
                             <?php
-                            $images = explode(';', $detail['anhslideshow_sanpham']);
-                            foreach ($images as $index => $image_name) {        
+                            $images = explode(';', $detail[0]['anhslideshow_sanpham']);
+                            foreach ($images as $index => $image_name) {
                                 echo "<img src='./image/" . $image_name . "' class='thumbnail img-thumbnail mx-1' alt='Thumbnail " . ($index + 1) . "' data-bs-target='#productCarousel' data-bs-slide-to='" . $index . "'>";
                             }
                             ?>
@@ -387,16 +411,16 @@
                     </div>
 
                 </div>
-                <div class="detailpro  col-6 p-0">
+                <div class="detailpro   col-6 p-0" id="scrollableDiv">
                     <div class="detailpro2 ">
                         <div class="row" style="height: 100%;width:80%;">
                             <div class=" col-12 ">
                                 <div class="row">
                                     <div class="namepro col-12 p-0 ">
-                                        <p><?= $detail['ten_sanpham'] ?></p>
+                                        <p><?= $detail[0]['ten_sanpham'] ?></p>
                                     </div>
                                     <div class="detail col-12 ">
-                                        <p><?= $detail['mota_sanpham'] ?></p>
+                                        <p><?= $detail[0]['mota_sanpham'] ?></p>
                                     </div>
                                     <div class="thucudoimoi col-12 p-0 ">
                                         <div class="thucudoimoitop col-12 ">
@@ -418,23 +442,16 @@
                                             <p style="font-size: 15px;"> Màu Sắc : <span style="font-family: 'SamsungOne400', arial, sans-serif;">Đen bí ẩn</span></p>
                                             <form action="/submit-color" method="POST">
                                                 <div class="d-flex flex-wrap my-3">
+                                                    <?php
+                                                     foreach ($result as $product) {
+                                                    foreach ($product['mausac_sanpham'] as $index => $color) {
+                                                        echo '<label class="color-option">
+            <input type="radio" name="color" value="' . $color . '" required>
+            <div class="colorbutton" style="background-color:' . $color . ';"></div>
+          </label>';
+                                                    }}
+                                                    ?>
 
-                                                    <label class="color-option">
-                                                        <input type="radio" name="color" value="Đỏ" required>
-                                                        <div class="colorbutton" style="background-color: red;"></div>
-                                                    </label>
-                                                    <label class="color-option">
-                                                        <input type="radio" name="color" value="Xanh dương" required>
-                                                        <div class="colorbutton" style="background-color: blue;"></div>
-                                                    </label>
-                                                    <label class="color-option">
-                                                        <input type="radio" name="color" value="Xanh lá" required>
-                                                        <div class="colorbutton" style="background-color: green;"></div>
-                                                    </label>
-                                                    <label class="color-option">
-                                                        <input type="radio" name="color" value="Vàng" required>
-                                                        <div class="colorbutton" style="background-color: yellow;"></div>
-                                                    </label>
                                                 </div>
                                                 <div class="uudai col-12 p-0 ">
                                                     <p style="font-size: 25px;"> Ưu đãi </p>
@@ -458,11 +475,25 @@
                                                     <div class="contentareabuy ">
                                                         <div class="row" style="width:100%;height:100%;margin:0;margin-top:20px;display:block">
                                                             <div class="textareabuy col-12 p-0 " style="border-bottom:1px solid gray;">
-                                                                <p style="font-size: 23px;">25kg Bespoke AI Laundry Combo™ Máy Giặt Sấy Cửa Trước với Sấy Bơm Nhiệt Heatpump</p>
+                                                                <p style="font-size: 23px;"><?= $detail[0]['ten_sanpham'] ?></p>
                                                             </div>
                                                             <div class=" col-12" style="text-align: center;height:15%;margin-top:20px;">
-                                                                <p style="font-size:30px;">67.890.179 ₫</p>
-                                                                <p style="font-size:15px;transform: translateY(-20px);"><del style=" font-family: 'SamsungOne400', arial, sans-serif;">75.990.200 ₫ </del> <span style="color:blue">Tiết kiệm 8.100.021 ₫</span></p>
+                                                                <p style="font-size:30px;"><?= number_format($detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫</p>
+                                                                <?php if (isset($detail[0]['giagoc_sanpham'])): ?>
+                                                                    <p style="font-size:15px;transform: translateY(-20px);">
+                                                                        <del style="font-family: 'SamsungOne400', arial, sans-serif;">
+                                                                            <?= number_format($detail[0]['giagoc_sanpham'], 0, ',', '.') ?> ₫
+                                                                        </del>
+                                                                        <span style="color:blue">
+                                                                            Tiết kiệm <?= number_format($detail[0]['giagoc_sanpham'] - $detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫
+                                                                        </span>
+                                                                    </p>
+                                                                <?php endif; ?>
+
+
+
+
+
                                                                 <button type="submit" class="btnaddcart2 btn btn-primary">Thêm vào giỏ hàng</button>
                                                             </div>
 
@@ -490,7 +521,10 @@
     </div>
 </div>
 </div>
-<?php require_once "./view/viewhome/footer.php" ?>
+<?php
+
+
+require_once "./view/viewhome/footer.php" ?>
 <script>
     const detailPro = document.querySelector('.detailpro');
 
@@ -501,17 +535,22 @@
             behavior: 'smooth'
         });
     });
-    const detailpro = document.querySelector('.detailpro');
+    const scrollableDiv = document.getElementById('scrollableDiv');
 
-    detailpro.addEventListener('wheel', function(event) {
-        if (
-            (detailpro.scrollTop === 0 && event.deltaY < 0) ||
-            (detailpro.scrollTop + detailpro.clientHeight === detailpro.scrollHeight && event.deltaY > 0)
-        ) {
+scrollableDiv.addEventListener('wheel', (event) => {
+    const isAtBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight;
+    const isAtTop = scrollableDiv.scrollTop === 0;
 
-            event.preventDefault();
+   
+    if (isAtBottom && event.deltaY > 0) {
+        event.preventDefault(); 
+        window.scrollBy(0, event.deltaY); 
+    }
 
-            window.scrollBy(0, event.deltaY);
-        }
-    });
+    else if (isAtTop && event.deltaY < 0) {
+        event.preventDefault();  
+        window.scrollBy(0, event.deltaY);  
+    }
+});
+
 </script>

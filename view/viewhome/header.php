@@ -111,7 +111,7 @@ foreach ($danhmuc as $row) {
                                     </a>
                                     <ul class="dropdown-menu">
                                         <?php foreach ($category['sanpham'] as $product) { ?>
-                                            <li><a class="dropdown-item" href="#"><?= htmlspecialchars($product['ten_sanpham']) ?></a></li>
+                                            <li><a class="dropdown-item" href="?act=chitietsp&id=<?= $product['id_sanpham'] ?> "><?= htmlspecialchars($product['ten_sanpham']) ?></a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>
