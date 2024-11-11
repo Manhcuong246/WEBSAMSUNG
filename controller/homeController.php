@@ -20,6 +20,7 @@ class homeController {
     public function chitietsp($id) {
         $danhmuc = $this->homeModel->danhmuc();
         $detail = $this->homeModel->findId($id);
+        $goiysanpham = $this->homeModel->goiysanpham($id);
         require_once 'view/viewchitietsanpham/chitietsanpham.php';
     }
   

@@ -24,7 +24,16 @@ ORDER BY RAND() ";
                 WHERE sanpham.id_sanpham = $id";
                return $this->conn->query($sql)->fetchAll();
     }
-    
+    function goiysanpham($id)
+    {
+        $sql = " SELECT *
+FROM sanpham
+WHERE id_danhmuc = (SELECT id_danhmuc FROM sanpham WHERE id_sanpham = $id)
+  AND id_sanpham != $id ORDER BY RAND() LIMIT 2 ;
+
+ ";
+        return $this->conn->query($sql);
+    }
     function danhmuc()
     {
         $sql = " SELECT 

@@ -147,7 +147,7 @@
     }
 
     .detailpro2 {
-     
+
         padding-top: 8%;
         display: flex;
         justify-content: center;
@@ -259,19 +259,21 @@
     }
 
     .uudai2 {
+
+        margin-bottom: 10px;
         background-color: #f4f6fe;
-        height: 150px;
+        height: auto;
         width: 100%;
         border-radius: 10px;
-        margin-bottom: 80px;
 
     }
 
     .samsungcamketgia {
+
         background-color: #006bea;
         width: 35%;
-        font-size: 12px;
-        height: 25px;
+        font-size: 14px;
+        height: 45%;
         border-radius: 20px;
         color: white;
         border: none;
@@ -279,12 +281,14 @@
     }
 
     .fathersamsungcamketgia {
-        height: 60px;
+
+        height: 50px;
         display: flex;
         align-items: center;
     }
 
     .areabuy {
+        margin-top: 75px;
         height: auto;
         width: 100%;
         background-color: #f7f7f7;
@@ -338,8 +342,90 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+
     }
-   
+
+    .timhieuthem {
+        color: black;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .timhieuthem::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: gray;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .timhieuthem:hover::after {
+        width: 100%;
+        left: 0;
+    }
+
+    .timhieuthem:hover {
+        color: gray;
+    }
+
+    .showsanpham {
+        border-bottom: 1px solid #dddddd;
+
+        padding: 0;
+        height: 160px;
+
+    }
+
+    .showsanpham img {
+        transform: scale(0.85);
+    }
+
+    .titlegoiysanpham {
+        margin-bottom: 5px;
+        border: none;
+        background-color: #01818c;
+        color: white;
+        font-size: 13px;
+        border-radius: 40px;
+        height: 23px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .buttongoiysanpham {
+        padding: 9px;
+        padding-left: 12px;
+        padding-right: 12px;
+        text-decoration: none;
+        background-color: black;
+        border-radius: 30px;
+        color: white;
+        height: 35px;
+        width: 100px;
+        border: none;
+        transition: all 0.2s ease;
+
+    }
+
+    .buttongoiysanpham:hover {
+        background-color: #555454;
+
+
+    }
+
+    .contentgoiysanpham {
+        padding-top: 10px;
+
+    }
+
+    .goiysanpham {
+        height: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
 </style>
 <?php
 $result = [];
@@ -366,7 +452,7 @@ foreach ($detail as $item) {
     $result[$id]['images'][] = $item['anh_sanpham'];
 } ?>
 <div class="container-fluid titlefather">
-    <div class="row " >
+    <div class="row ">
         <div class="col-12 title" id="title">
             <div class="row">
                 <div class="col-8 titleleft">
@@ -448,6 +534,7 @@ foreach ($detail as $item) {
                         <div class="row" style="height: 100%;width:95%;">
                             <div class=" col-12 ">
                                 <div class="row">
+
                                     <div class="namepro col-12 p-0 ">
                                         <p><?= $detail[0]['ten_sanpham'] ?></p>
                                     </div>
@@ -472,9 +559,9 @@ foreach ($detail as $item) {
                                         <div class="chonmau col-12  " style="margin-top:20px;">
 
                                             <p style="font-size: 25px;"> Chọn màu sắc </p>
-                                          
+
                                             <div class="hinhanhmau">
-                                             <img id="displayimg" src="./image/<?= $detail[0]['anh_sanpham'] ?>" alt="">
+                                                <img id="displayimg" src="./image/<?= $detail[0]['anh_sanpham'] ?>" alt="">
                                             </div>
 
                                             <p style="font-size: 15px;"> Màu Sắc : <span class="textcolor" id="colorName" style="font-family: 'SamsungOne400', arial, sans-serif;">vui lòng chọn màu sắc</span>
@@ -482,36 +569,92 @@ foreach ($detail as $item) {
                                             <form action="/submit-color" method="POST">
                                                 <div class="d-flex flex-wrap my-3">
                                                     <?php $colorNames = $result[$detail[0]['id_sanpham']]['mausac_sanphamtext'];
-                                                     $imgcolor = $result[$detail[0]['id_sanpham']]['images'];
+                                                    $imgcolor = $result[$detail[0]['id_sanpham']]['images'];
                                                     foreach ($result as $product) {
                                                         foreach ($product['mausac_sanpham'] as $index => $color) {
                                                             echo '<label class="color-option">
              <input type="radio" name="color" value="' . $color . '" data-color-name="' . $colorNames[$index] . '" data-color-img ="' . htmlspecialchars($imgcolor[$index], ENT_QUOTES, 'UTF-8') . '" required>
             <div class="colorbutton" style="background-color:' . $color . ';"></div>
-          </label>';     
+          </label>';
                                                         }
                                                     }
                                                     ?>
-                    
+
+                                                </div>
+                                                <div class="goiysanpham">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <p style="font-size: 25px;line-height: 0.4;"> Thêm sản phẩm khác </p>
+                                                            <p style=" font-family: 'SamsungOne400', arial, sans-serif;font-size:15px;">Đừng bỏ lỡ các sản phẩm phù hợp với nhu cầu của bạn</p>
+                                                        </div>
+                                                        <?php foreach ($goiysanpham as $goiy) { ?>
+                                                            <div class="showsanpham">
+                                                                <div class="row">
+                                                                    <div class="col-2"><a href="?act=chitietsp&id=<?= $goiy['id_sanpham'] ?>"><img src="./image/<?= $goiy['anhgoiy_sanpham'] ?>" style="width:100%" alt=""></a></div>
+                                                                    <div class="contentgoiysanpham col-7 "><button class="titlegoiysanpham">Samsung Cam Kết Giá</button>
+                                                                        <p><?= mb_strimwidth($goiy['ten_sanpham'], 0, 55, '...') ?></p>
+                                                                        <p style=" font-family: 'SamsungOne400', arial, sans-serif;font-size:13px;"><?= mb_strimwidth($goiy['mota_sanpham'], 0, 200, '...') ?>
+                                                                    </div>
+                                                                    <div class="col-3 contentgoiysanpham">
+                                                                        <p><?= number_format($goiy['gia_sanpham'], 0, ',', '.') ?> đ</p><a class="buttongoiysanpham" href="?act=chitietsp&id=<?= $goiy['id_sanpham'] ?>">Xem ngay</a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        <?php } ?>
+                                                    </div>
                                                 </div>
                                                 <div class="uudai col-12 p-0 ">
                                                     <p style="font-size: 25px;"> Ưu đãi </p>
                                                     <div class="uudai2 col-12 p-0 ">
                                                         <div class="row">
-                                                            <div class="col-3 "><img src="./image/160x160-1-.png" alt=""></div>
-                                                            <div class="col-9 ps-5">
+                                                            <div class="col-2 "><img src="./image/160x160-1-.png" style="width:140%" alt=""></div>
+                                                            <div class="col-10 ps-5">
                                                                 <div class="row">
                                                                     <div class="fathersamsungcamketgia col-12"><button class="samsungcamketgia">Samsung Cam Kết Giá</button></div>
                                                                     <div class="col-12">
-                                                                        <p style="  font-family: 'SamsungOne400', arial, sans-serif;font-size:15px;">Samsung nỗ lực tối ưu các ưu đãi cho khách hàng với chương trình Cam Kết Giá</p>
+                                                                        <p style="  font-family: 'SamsungOne400', arial, sans-serif;font-size:15px;">Samsung nỗ lực tối ưu các ưu đãi cho khách hàng qua chương trình Cam Kết Giá, giúp người dùng mua sản phẩm với giá tốt nhất.</p>
                                                                     </div>
-                                                                    <div class="col-12"><a class="text-dark " href="#">Tìm hiểu thêm<i class="bi bi-arrow-up-right"></i></a></div>
+                                                                    <div class="col-12"><a class="timhieuthem " href="#">Tìm hiểu thêm<i class="bi bi-arrow-up-right"></i></a></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="uudai2 col-12 p-0 ">
+                                                        <div class="row">
+                                                            <div class="col-2 "><img src="./image/offer_trade_in_blue.png" style="width:130%" alt=""></div>
+                                                            <div class="col-10 ps-5">
+                                                                <div class="row" style="height:100%">
+                                                                    <div class="fathersamsungcamketgia col-12"><button class="samsungcamketgia">Thu cũ đổi mới tại nhà</button></div>
+                                                                    <div class="col-12">
+                                                                        <p style="  font-family: 'SamsungOne400', arial, sans-serif;font-size:15px;">Lên đời TV Samsung 2024, giảm trừ trực tiếp đến <span style="color:#0099ff;font-weight: 900;">15%</span> giá niêm yết</p>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="uudai2 col-12 p-0 ">
+                                                        <div class="row">
+                                                            <div class="col-2 "><img src="./image/samsung_rewards_tier.webp" style="width:140%" alt=""></div>
+                                                            <div class="col-10 ps-5">
+                                                                <div class="row">
+                                                                    <div class="fathersamsungcamketgia col-12"><button class="samsungcamketgia">Tích điểm thưởng</button></div>
+                                                                    <div class="col-12">
+                                                                        <p style="  font-family: 'SamsungOne400', arial, sans-serif;font-size:15px;">Đăng nhập ngay để nhận điểm Samsung Rewards với đơn hàng này
+                                                                            Blue : 5% | Gold : 7% | Platinum : 9%
+                                                                            Ưu đãi x2 Đổi điểm Rewards, tối đa 1 triệu.</p>
+                                                                    </div>
+                                                                    <div class="col-12"><a class="timhieuthem " href="#">Tìm hiểu thêm<i class="bi bi-arrow-up-right"></i></a></div>
                                                                 </div>
 
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="areabuy col-12">
                                                     <div class="contentareabuy ">
                                                         <div class="row" style="width:100%;height:100%;margin:0;margin-top:20px;display:block">
@@ -520,20 +663,20 @@ foreach ($detail as $item) {
                                                             </div>
                                                             <div class=" col-12" style="text-align: center;height:15%;margin-top:20px;">
                                                                 <p style="font-size:30px;"><?= number_format($detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫</p>
-                                                                <?php if (isset($detail[0]['giagoc_sanpham'])){?>
+                                                                <?php if (isset($detail[0]['giagoc_sanpham'])) { ?>
                                                                     <p style="font-size:15px;transform: translateY(-20px);">
                                                                         <del style="font-family: 'SamsungOne400', arial, sans-serif;">
                                                                             <?= number_format($detail[0]['giagoc_sanpham'], 0, ',', '.') ?> ₫
-                                                                        </del> 
+                                                                        </del>
                                                                         <span style="color:blue">
                                                                             Tiết kiệm <?= number_format($detail[0]['giagoc_sanpham'] - $detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫
                                                                         </span>
                                                                     </p>
-                                                                <?php }  else {  ?>
+                                                                <?php } else {  ?>
                                                                     <p style="font-size:15px;transform: translateY(-20px);"> <span style="color:blue">
-                                                                    Mừng mùa lễ hội siêu sale, chốt đơn ngay
+                                                                            Mừng mùa lễ hội siêu sale, chốt đơn ngay
                                                                         </span> </p>
-                                                                   <?php }  ?>
+                                                                <?php }  ?>
 
 
 
@@ -565,22 +708,20 @@ foreach ($detail as $item) {
 </div>
 </div>
 <?php
-
 require_once "./view/viewchitietsanpham/comment.php";
 require_once "./view/viewhome/footer.php" ?>
 <script>
-    
-        document.querySelectorAll('input[name="color"]').forEach(input => {
+    document.querySelectorAll('input[name="color"]').forEach(input => {
         input.addEventListener('change', function() {
             const colorName = this.getAttribute('data-color-name');
             const colorImg = this.getAttribute('data-color-img');
             document.getElementById('colorName').textContent = colorName;
             const fullImagePath = `./image/${colorImg}`;
-      
+
             console.log(colorImg);
 
-      document.getElementById('displayimg').src = fullImagePath;
-      
+            document.getElementById('displayimg').src = fullImagePath;
+
         });
     });
     const detailPro = document.querySelector('.detailpro');
@@ -588,7 +729,7 @@ require_once "./view/viewhome/footer.php" ?>
     detailPro.addEventListener('wheel', (event) => {
         event.preventDefault();
         detailPro.scrollBy({
-            top: event.deltaY * 0.3,
+            top: event.deltaY * 0.8,
             behavior: 'smooth'
         });
     });
@@ -608,19 +749,17 @@ require_once "./view/viewhome/footer.php" ?>
         }
     });
     const header = document.getElementById("title");
-const titleFather = document.querySelector(".titlefather"); 
+    const titleFather = document.querySelector(".titlefather");
 
-const sticky = header.offsetTop;
+    const sticky = header.offsetTop;
 
-window.onscroll = function() {
-    if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-        titleFather.style.paddingTop = "85px";
-    } else {
-        header.classList.remove("sticky");
-        titleFather.style.paddingTop = ""; 
-    }
-};
-
-    
+    window.onscroll = function() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+            titleFather.style.paddingTop = "85px";
+        } else {
+            header.classList.remove("sticky");
+            titleFather.style.paddingTop = "";
+        }
+    };
 </script>
