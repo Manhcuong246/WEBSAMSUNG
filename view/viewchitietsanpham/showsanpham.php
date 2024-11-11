@@ -2,6 +2,7 @@
     .title {
         background-color: black;
         height: 85px;
+        position: sticky;
     }
 
     .product {
@@ -18,13 +19,14 @@
     }
 
     .titlenameproduct {
-        height: 100%;
+        height: 85px;
         width: 50%;
         overflow: hidden;
         display: flex;
+        justify-items: center;
         align-items: center;
         justify-content: center;
-        padding-top: 5px;
+        padding-top: 15px;
     }
 
     .titlenameproduct p {
@@ -140,11 +142,12 @@
     .detailpro {
         overflow: hidden;
         overflow-y: auto;
-   
+
         scroll-behavior: smooth;
     }
 
     .detailpro2 {
+     
         padding-top: 8%;
         display: flex;
         justify-content: center;
@@ -200,7 +203,7 @@
         border-radius: 7px;
         border: 1px solid #D3D3D3;
         height: 55px;
-        margin-top: 6px;
+        margin-bottom: 7px;
 
     }
 
@@ -265,7 +268,7 @@
     }
 
     .samsungcamketgia {
-        background-color: #2089fe;
+        background-color: #006bea;
         width: 35%;
         font-size: 12px;
         height: 25px;
@@ -282,7 +285,7 @@
     }
 
     .areabuy {
-        height: 350px;
+        height: auto;
         width: 100%;
         background-color: #f7f7f7;
         display: flex;
@@ -291,16 +294,19 @@
     }
 
     .contentareabuy {
-        padding: 0;
-        margin: 0;
+
+        padding-bottom: 5%;
         width: 80%;
-        height: 100%;
+        height: auto;
 
     }
 
     .textareabuy {
-        height: 35%;
 
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .areabtnaddcart2 {
@@ -308,6 +314,32 @@
         display: flex;
         justify-content: center;
     }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .hinhanhmau {
+        width: 150px;
+        height: 140px;
+        border: 1px solid #D3D3D3;
+        margin-bottom: 15px;
+        padding: 5px;
+        border-radius: 5px;
+        box-sizing: border-box;
+
+    }
+
+    .hinhanhmau img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+   
 </style>
 <?php
 $result = [];
@@ -328,20 +360,20 @@ foreach ($detail as $item) {
         ];
     }
 
-    // Thêm màu sắc và ảnh vào các mảng
+
     $result[$id]['mausac_sanpham'][] = $item['mausac_sanphamhex'];
     $result[$id]['mausac_sanphamtext'][] = $item['mausac_sanphamtext'];
     $result[$id]['images'][] = $item['anh_sanpham'];
 } ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 title">
+<div class="container-fluid titlefather">
+    <div class="row " >
+        <div class="col-12 title" id="title">
             <div class="row">
                 <div class="col-8 titleleft">
                     <div class="titlenameproduct">
                         <p><?= mb_strimwidth($detail[0]['ten_sanpham'], 0, 75, '...') ?></p>
 
-                 
+
                     </div>
                 </div>
                 <div class="col-4 titleright">
@@ -413,7 +445,7 @@ foreach ($detail as $item) {
                 </div>
                 <div class="detailpro   col-6 p-0" id="scrollableDiv">
                     <div class="detailpro2 ">
-                        <div class="row" style="height: 100%;width:80%;">
+                        <div class="row" style="height: 100%;width:95%;">
                             <div class=" col-12 ">
                                 <div class="row">
                                     <div class="namepro col-12 p-0 ">
@@ -438,20 +470,29 @@ foreach ($detail as $item) {
                                             <button>Không, cảm ơn</button>
                                         </div>
                                         <div class="chonmau col-12  " style="margin-top:20px;">
+
                                             <p style="font-size: 25px;"> Chọn màu sắc </p>
-                                            <p style="font-size: 15px;"> Màu Sắc : <span style="font-family: 'SamsungOne400', arial, sans-serif;">Đen bí ẩn</span></p>
+                                          
+                                            <div class="hinhanhmau">
+                                             <img id="displayimg" src="./image/<?= $detail[0]['anh_sanpham'] ?>" alt="">
+                                            </div>
+
+                                            <p style="font-size: 15px;"> Màu Sắc : <span class="textcolor" id="colorName" style="font-family: 'SamsungOne400', arial, sans-serif;">vui lòng chọn màu sắc</span>
+                                            </p>
                                             <form action="/submit-color" method="POST">
                                                 <div class="d-flex flex-wrap my-3">
-                                                    <?php
-                                                     foreach ($result as $product) {
-                                                    foreach ($product['mausac_sanpham'] as $index => $color) {
-                                                        echo '<label class="color-option">
-            <input type="radio" name="color" value="' . $color . '" required>
+                                                    <?php $colorNames = $result[$detail[0]['id_sanpham']]['mausac_sanphamtext'];
+                                                     $imgcolor = $result[$detail[0]['id_sanpham']]['images'];
+                                                    foreach ($result as $product) {
+                                                        foreach ($product['mausac_sanpham'] as $index => $color) {
+                                                            echo '<label class="color-option">
+             <input type="radio" name="color" value="' . $color . '" data-color-name="' . $colorNames[$index] . '" data-color-img ="' . htmlspecialchars($imgcolor[$index], ENT_QUOTES, 'UTF-8') . '" required>
             <div class="colorbutton" style="background-color:' . $color . ';"></div>
-          </label>';
-                                                    }}
+          </label>';     
+                                                        }
+                                                    }
                                                     ?>
-
+                    
                                                 </div>
                                                 <div class="uudai col-12 p-0 ">
                                                     <p style="font-size: 25px;"> Ưu đãi </p>
@@ -479,18 +520,20 @@ foreach ($detail as $item) {
                                                             </div>
                                                             <div class=" col-12" style="text-align: center;height:15%;margin-top:20px;">
                                                                 <p style="font-size:30px;"><?= number_format($detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫</p>
-                                                                <?php if (isset($detail[0]['giagoc_sanpham'])): ?>
+                                                                <?php if (isset($detail[0]['giagoc_sanpham'])){?>
                                                                     <p style="font-size:15px;transform: translateY(-20px);">
                                                                         <del style="font-family: 'SamsungOne400', arial, sans-serif;">
                                                                             <?= number_format($detail[0]['giagoc_sanpham'], 0, ',', '.') ?> ₫
-                                                                        </del>
+                                                                        </del> 
                                                                         <span style="color:blue">
                                                                             Tiết kiệm <?= number_format($detail[0]['giagoc_sanpham'] - $detail[0]['gia_sanpham'], 0, ',', '.') ?> ₫
                                                                         </span>
                                                                     </p>
-                                                                <?php endif; ?>
-
-
+                                                                <?php }  else {  ?>
+                                                                    <p style="font-size:15px;transform: translateY(-20px);"> <span style="color:blue">
+                                                                    Mừng mùa lễ hội siêu sale, chốt đơn ngay
+                                                                        </span> </p>
+                                                                   <?php }  ?>
 
 
 
@@ -523,9 +566,23 @@ foreach ($detail as $item) {
 </div>
 <?php
 
-
+require_once "./view/viewchitietsanpham/comment.php";
 require_once "./view/viewhome/footer.php" ?>
 <script>
+    
+        document.querySelectorAll('input[name="color"]').forEach(input => {
+        input.addEventListener('change', function() {
+            const colorName = this.getAttribute('data-color-name');
+            const colorImg = this.getAttribute('data-color-img');
+            document.getElementById('colorName').textContent = colorName;
+            const fullImagePath = `./image/${colorImg}`;
+      
+            console.log(colorImg);
+
+      document.getElementById('displayimg').src = fullImagePath;
+      
+        });
+    });
     const detailPro = document.querySelector('.detailpro');
 
     detailPro.addEventListener('wheel', (event) => {
@@ -537,20 +594,33 @@ require_once "./view/viewhome/footer.php" ?>
     });
     const scrollableDiv = document.getElementById('scrollableDiv');
 
-scrollableDiv.addEventListener('wheel', (event) => {
-    const isAtBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight;
-    const isAtTop = scrollableDiv.scrollTop === 0;
+    scrollableDiv.addEventListener('wheel', (event) => {
+        const isAtBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight;
+        const isAtTop = scrollableDiv.scrollTop === 0;
 
-   
-    if (isAtBottom && event.deltaY > 0) {
-        event.preventDefault(); 
-        window.scrollBy(0, event.deltaY); 
+
+        if (isAtBottom && event.deltaY > 0) {
+            event.preventDefault();
+            window.scrollBy(0, event.deltaY);
+        } else if (isAtTop && event.deltaY < 0) {
+            event.preventDefault();
+            window.scrollBy(0, event.deltaY);
+        }
+    });
+    const header = document.getElementById("title");
+const titleFather = document.querySelector(".titlefather"); 
+
+const sticky = header.offsetTop;
+
+window.onscroll = function() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+        titleFather.style.paddingTop = "85px";
+    } else {
+        header.classList.remove("sticky");
+        titleFather.style.paddingTop = ""; 
     }
+};
 
-    else if (isAtTop && event.deltaY < 0) {
-        event.preventDefault();  
-        window.scrollBy(0, event.deltaY);  
-    }
-});
-
+    
 </script>

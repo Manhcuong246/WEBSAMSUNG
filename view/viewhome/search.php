@@ -18,10 +18,15 @@
         height: 50px;   
     }
     .formsearch input{
+        transition: all 0.1s ease;
         border: 1px solid black;
         border-radius: 20px;
         width: 100%;    
         height: 100%;
+    }
+    .formsearch input:focus{
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     }
 </style>
 
