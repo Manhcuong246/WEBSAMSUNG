@@ -57,22 +57,27 @@
 
     .buttoncolorproduct button{ 
         opacity: 0.5 !important;
-      transition: transform 0.3s ease !important;
+      transition: all 0.1s ease !important;
+      
        height: 20px !important;
        width: 20px !important;
        border-radius: 50%;
+       box-shadow: inset 0 0 0 1px black !important;
+       border: none !important;
     
     }
  
 .buttoncolorproduct{
     position: absolute;
-    top: 350px;
-    gap:20px;
+  transform: translate(0,175px);
+  gap:20px;
+
 }
 .buttoncolorproduct button.active {
-    opacity: 0.7;
-    transform: translate(0, -5px) !important;
-    box-shadow: inset 0 0 0 1px black !important;
+    opacity: 0.9 !important;
+    outline-offset: 4px;
+    outline: 1px solid blue;
+   
 } 
 .costitem{
     margin-top: 20px;
@@ -105,10 +110,11 @@
      .buttonitem button:hover{
         background-color: #919191;
      }
+
 </style><?php
 $products = [];
 
-$products_per_page = 8;
+$products_per_page = 16;
 
 
 foreach ($sanpham as $row) {
@@ -138,17 +144,24 @@ $displayed_products = array_slice($products, 0, $products_per_page);
 <br><br>
 <div class="product container">
     <div class="row" style="height: 100%;">
-        <?php foreach ($displayed_products as $key => $product) { ?>
+        <?php 
+
+     
+        foreach ($displayed_products as $key => $product) {  ?>
         <div class="col-3 py-1">
             <div class="productitem">
-                <div id="carouselExampleIndicators<?= $key ?>" class="carousel slide">
-                    <div class="buttoncolorproduct carousel-indicators">
-                        <?php
-                        foreach ($product['mausac_sanpham'] as $index => $color) {
-                            $activeClass = $index == 0 ? 'active' : '';
-                            echo '<button id="mybutton'. $index .'" style="background-color: ' . $color . ' !important" type="button" data-bs-target="#carouselExampleIndicators' . $key . '" data-bs-slide-to="' . $index . '" class="' . $activeClass . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
-                        }
-                        ?>
+                <div id="carouselExampleIndicators<?= $key ?>" class="carousel slide" >
+                    <div class=" carousel-indicators buttoncolorproduct" >
+                       <?php
+$count = 0; 
+foreach ($product['mausac_sanpham'] as $index => $color) {
+    if ($count >= 3) break; 
+    $activeClass = $index == 0 ? 'active' : '';
+    echo '<button id="mybutton'. $index .'" style="background-color: ' . $color . ' !important" type="button" data-bs-target="#carouselExampleIndicators' . $key . '" data-bs-slide-to="' . $index . '" class="' . $activeClass . '" aria-current="true" aria-label="Slide ' . ($index + 1) . '"></button>';
+    $count++; 
+}
+?>
+
                     </div>
                     <div class="carousel-inner">
                         <?php
@@ -187,7 +200,7 @@ $displayed_products = array_slice($products, 0, $products_per_page);
                 </div>
             </div>
         </div>
-        <?php  } ?>
+        <?php   } ?>
     </div>
 </div>
 

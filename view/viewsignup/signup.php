@@ -206,8 +206,8 @@ window.onload = scrollToCenter;
                             <div class="formlogin">
                                 <form>
                                     <div class="form-group ">
-                                        <label class="textlogin" for="exampleInputEmail1">Email</label>
-                                        <input style="margin-bottom:40px;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
+                                        <label class="textlogin" for="exampleInputEmail1">Tài khoản</label>
+                                        <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
 
                                     </div>
                                     <div class="form-group">
@@ -215,12 +215,12 @@ window.onload = scrollToCenter;
                                         <input style="margin-bottom:40px;" type="password" class="form-control" id="exampleInputPassword1" require  >
                                     </div>
                                     <div class="form-group ">
-                                        <label class="textlogin" for="exampleInputEmail1">Họ</label>
+                                        <label class="textlogin" for="exampleInputEmail1">Họ và tên</label>
                                         <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
 
                                     </div>
                                     <div class="form-group ">
-                                        <label class="textlogin" for="exampleInputEmail1">Tên</label>
+                                        <label class="textlogin" for="exampleInputEmail1">Email</label>
                                         <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
                                     </div>
                                     <div class="form-group ">

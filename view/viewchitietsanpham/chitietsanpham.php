@@ -18,6 +18,10 @@
     font-family: 'SamsungOne400';
     src: url('./font/SamsungOne-400.ttf') format('truetype'); 
 }
+@font-face {
+    font-family: 'Samsungsharp';
+    src: url('./font/iCiel-SamsungSharpSans-Bold_SMCPS.ttf') format('truetype'); 
+    }
 body{
         font-family: 'SamsungOne', arial, sans-serif;
       

@@ -20,18 +20,19 @@
 
     .titlenameproduct {
         height: 85px;
-        width: 50%;
+        width: 60%;
         overflow: hidden;
         display: flex;
         justify-items: center;
         align-items: center;
         justify-content: center;
-        padding-top: 15px;
+        padding-top: 23px;
     }
 
     .titlenameproduct p {
         color: white;
         font-size: 25px;
+        font-family: 'Samsungsharp';
     }
 
     .costproduct {
@@ -47,15 +48,6 @@
         justify-content: center;
     }
 
-    .btnaddcart {
-        transition: all 0.5s ease;
-        background-color: #2089fe;
-        width: 73%;
-        font-size: 14px;
-        text-shadow: 1px 1px 4px gray;
-        height: 40px;
-        border-radius: 20px;
-    }
 
     .costtop {
 
@@ -68,7 +60,7 @@
 
     .costtop p {
         color: white;
-        font-size: 25px;
+        font-size: 25.5515px;
 
     }
 
@@ -76,14 +68,14 @@
         height: 42.5px;
         width: 100%;
         text-align: right;
-
+        line-height: 15px;
         padding-top: 10px;
     }
 
     .costbot p {
 
-        color: #6495ED;
-        font-size: 12px;
+        color: rgb(33, 137, 255);
+        font-size: 13.5px;
 
 
     }
@@ -91,7 +83,7 @@
     .costbot del {
 
         color: white;
-        font-size: 12px;
+
 
     }
 
@@ -169,7 +161,7 @@
 
     .namepro p {
         font-size: 27px;
-
+        font-family: 'Samsungsharp';
     }
 
     .detail {
@@ -247,20 +239,108 @@
 
     }
 
-    .btnaddcart2 {
+    :root {
+        --color: #2089fe;
+    }
 
-        transition: all 0.5s ease;
-        background-color: #2089fe;
-        width: 73%;
-        font-size: 14px;
-        text-shadow: 1px 1px 4px gray;
-        height: 40px;
-        border-radius: 20px;
+    .btnaddcart2 {
+        display: inline-block;
+        padding: .75rem 1.25rem;
+        border-radius: 10rem;
+        color: #fff;
+        width: 50%;
+        font-size: 1rem;
+
+        transition: all .3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .btnaddcart2:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color);
+        border-radius: 10rem;
+        z-index: -2;
+    }
+
+    .btnaddcart2:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #0cf;
+        transition: all .3s;
+        border-radius: 10rem;
+        z-index: -1;
+    }
+
+    .btnaddcart2:hover {
+        color: #fff;
+    }
+
+    .btnaddcart2:hover:before {
+        width: 100%;
+    }
+
+    .btnaddcart {
+        transform: scale(0.9);
+        display: inline-block;
+        padding: .75rem 1.25rem;
+        border-radius: 10rem;
+        color: #fff;
+        width: 100%;
+        font-size: 1rem;
+
+        transition: all .3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .btnaddcart:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color);
+        border-radius: 10rem;
+        z-index: -2;
+    }
+
+    .btnaddcart:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #0cf;
+        transition: all .3s;
+        border-radius: 10rem;
+        z-index: -1;
+    }
+
+    .btnaddcart:hover {
+        color: #fff;
+    }
+
+    .btnaddcart:hover:before {
+        width: 100%;
     }
 
     .uudai2 {
-
-        margin-bottom: 10px;
+        transform: scale(0.95);
+        margin-bottom: 8px;
         background-color: #f4f6fe;
         height: auto;
         width: 100%;
@@ -269,11 +349,11 @@
     }
 
     .samsungcamketgia {
-
+        padding: 0 15px;
         background-color: #006bea;
-        width: 35%;
+        width: auto;
         font-size: 14px;
-        height: 45%;
+        height: 55%;
         border-radius: 20px;
         color: white;
         border: none;
@@ -330,7 +410,7 @@
     .hinhanhmau {
         width: 150px;
         height: 140px;
-        border: 1px solid #D3D3D3;
+
         margin-bottom: 15px;
         padding: 5px;
         border-radius: 5px;
@@ -425,6 +505,38 @@
         height: auto;
         margin-top: 40px;
         margin-bottom: 40px;
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    .radio-group {
+        flex-wrap: wrap;
+        display: flex;
+        gap: 10px;
+    }
+
+    .radio-option {
+        min-width: 120px;
+        padding: 20px 40px;
+        border-radius: 10px;
+        border: 1px solid #D3D3D3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .radio-option.selected {
+        background-color: #cce7ff;
+        border-color: #007bff;
+    }
+
+    .radio-option:hover {
+        border-color: #007bff;
     }
 </style>
 <?php
@@ -564,7 +676,7 @@ foreach ($detail as $item) {
                                                 <img id="displayimg" src="./image/<?= $detail[0]['anh_sanpham'] ?>" alt="">
                                             </div>
 
-                                            <p style="font-size: 15px;"> Màu Sắc : <span class="textcolor" id="colorName" style="font-family: 'SamsungOne400', arial, sans-serif;">vui lòng chọn màu sắc</span>
+                                            <p style="font-size: 15px;"> Màu Sắc : <span class="textcolor" id="colorName" style="font-family: 'SamsungOne400', arial, sans-serif;">Hãy chọn!</span>
                                             </p>
                                             <form action="/submit-color" method="POST">
                                                 <div class="d-flex flex-wrap my-3">
@@ -581,6 +693,26 @@ foreach ($detail as $item) {
                                                     ?>
 
                                                 </div>
+                                                <?php if (isset($detail[0]['tieudebienthe_sanpham'])): ?>
+    <div class="chonphanloai">
+        <div class="row">
+            <div class="col-12">
+                <p style="font-size: 25px;">Chọn <?= $detail[0]['tieudebienthe_sanpham'] ?></p>
+            </div>
+            <div class="col-12">
+                <div class="radio-group">
+                    <?php
+                    $luachon = explode(";", $detail[0]["cacluachonbienthe_sanpham"]);
+                    foreach ($luachon as $index => $luachon) { ?>
+                        <div class="radio-option" name="bienthe" value="<?= $luachon ?>" data-value="option<?= $index ?>" onclick="selectOption('option<?= $index ?>')"><?= $luachon ?></div>
+                    <?php } ?>
+                </div>
+                <input type="hidden" name="selected_option" id="selected_option" />
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
                                                 <div class="goiysanpham">
                                                     <div class="row">
                                                         <div class="col-12">
@@ -638,6 +770,21 @@ foreach ($detail as $item) {
                                                     </div>
                                                     <div class="uudai2 col-12 p-0 ">
                                                         <div class="row">
+                                                            <div class="col-2 " style="padding:0;padding:15px;  "><img src="./image/Warranty.avif" style="width:120%;margin-left:10px;" alt=""></div>
+                                                            <div class="col-10 ps-5">
+                                                                <div class="row" style="height:100%">
+                                                                    <div class="fathersamsungcamketgia col-12"><button class="samsungcamketgia">Bảo hành 20 năm động cơ Digital Inverter.</button></div>
+                                                                    <div class="col-12">
+                                                                        <p style="  font-family: 'SamsungOne400', arial, sans-serif;font-size:15px;">Độ bền vượt trội giúp tiết kiệm chi phí và giảm thiểu rác thải điện tử, bảo vệ môi trường.</p>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="uudai2 col-12 p-0 ">
+                                                        <div class="row">
                                                             <div class="col-2 "><img src="./image/samsung_rewards_tier.webp" style="width:140%" alt=""></div>
                                                             <div class="col-10 ps-5">
                                                                 <div class="row">
@@ -680,7 +827,7 @@ foreach ($detail as $item) {
 
 
 
-                                                                <button type="submit" class="btnaddcart2 btn btn-primary">Thêm vào giỏ hàng</button>
+                                                                <button type="submit" class="btnaddcart2 btn ">Thêm vào giỏ hàng</button>
                                                             </div>
 
                                                         </div>
@@ -762,4 +909,17 @@ require_once "./view/viewhome/footer.php" ?>
             titleFather.style.paddingTop = "";
         }
     };
+
+    function selectOption(option) {
+        // Deselect all options
+        const options = document.querySelectorAll('.radio-option');
+        options.forEach(opt => opt.classList.remove('selected'));
+
+        // Mark selected option
+        const selectedOption = document.querySelector(`.radio-option[data-value="${option}"]`);
+        selectedOption.classList.add('selected');
+
+        // Update hidden input value
+        document.getElementById('selected_option').value = option;
+    }
 </script>

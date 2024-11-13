@@ -209,8 +209,8 @@ window.onload = scrollToCenter;
                             <div class="formlogin">
                                 <form>
                                     <div class="form-group ">
-                                        <label class="textlogin" for="exampleInputEmail1">Email</label>
-                                        <input style="margin-bottom:40px;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <label class="textlogin" >Tài khoản</label>
+                                        <input style="margin-bottom:40px;" type="email" class="form-control"  aria-describedby="emailHelp">
 
                                     </div>
                                     <div class="form-group">

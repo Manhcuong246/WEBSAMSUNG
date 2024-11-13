@@ -90,15 +90,15 @@
                   <div class="small d-flex justify-content-start">
                     <a href="#!" class="d-flex align-items-center me-3">
                     
-                      <p class="mb-0"> <i class="far fa-thumbs-up me-2"></i>Like</p>
+                      <p class="mb-0"> <i class="far fa-thumbs-up me-2"></i>Thích</p>
                     </a>
                     <a href="#!" class="d-flex align-items-center me-3">
                   
-                      <p class="mb-0">    <i class="far fa-comment-dots me-2"></i>Comment</p>
+                      <p class="mb-0">    <i class="far fa-comment-dots me-2"></i>Phản hồi</p>
                     </a>
                     <a href="#!" class="d-flex align-items-center me-3">
                     
-                      <p class="mb-0"> <i class="fas fa-share me-2"></i>Share</p>
+                      <p class="mb-0"> <i class="fas fa-share me-2"></i>Chia sẻ</p>
                     </a>
                   </div>
             
@@ -149,14 +149,12 @@
         <p class="mt-3 mb-4 pb-2">${commentText}</p>
         <div class="small d-flex justify-content-start">
           <a href="#!" class="d-flex align-items-center me-3">
-            <p class="mb-0"><i class="far fa-thumbs-up me-2"></i>Like</p>
+            <p class="mb-0">Chỉnh sửa</p>
           </a>
           <a href="#!" class="d-flex align-items-center me-3">
-            <p class="mb-0"><i class="far fa-comment-dots me-2"></i>Comment</p>
+            <p class="mb-0">Xóa</p>
           </a>
-          <a href="#!" class="d-flex align-items-center me-3">
-            <p class="mb-0"><i class="fas fa-share me-2"></i>Share</p>
-          </a>
+          
         </div>
       `;
       document.getElementById("commentsContainer").appendChild(commentDiv);
