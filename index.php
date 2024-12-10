@@ -22,8 +22,6 @@ match ($act) {
      'giaithichuudai' => (new AdminController())->giaithichuudai(),
      'giohang' => (new AdminController())->giohang($_SESSION['id']),
      'xoagiohang' => (new AdminController())->xoagiohang($_GET['id']),
-     'xoabinhluan' => (new AdminController())->xoabinhluan($_GET['id'],$_GET['idsp']),
-     'themdanhmuc' => (new AdminController())->themdanhmuc(),
     
 };
 ?>
