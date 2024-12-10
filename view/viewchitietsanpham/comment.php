@@ -1,3 +1,4 @@
+
   <style>
   .card{
       border: none;
@@ -69,22 +70,28 @@
       <div class="container my-5 py-5">
           
         <div class="row d-flex justify-content-center">
-              <h1 style="text-align: left;">Bình luận (2)</h1> 
+              <h1 style="text-align: left;">Bình luận (<?= count($binhluan) ?>)</h1> 
           <div class="col-12">
             <div class="card">
-                <div class="card-body">
+              <?php foreach ($binhluan as $key => $row) {  ?>
+            <div class="card-body">
                   <div class="d-flex flex-start align-items-center">
                     <div class="avatar">
-                             <img class="rounded-circle shadow-1-strong me-3" src="./image/239462814_2349880831812471_7302002402268342362_n.jpg" alt="avatar" />
+                             <img class="rounded-circle shadow-1-strong me-3" src="./image/<?= $row['anh_taikhoan'] ?>" alt="avatar" />
                        </div>
                       <div>
-                      <h6 class="fw-bold text-primary mb-1">Phùng Thanh Độ</h6>
-                      <p class="text-muted small mb-0">Shared publicly - Jan 2020</p>
+                      <h6 class="fw-bold text-primary mb-1"><?= $row['tennguoidung_taikhoan'] ?></h6>
+                      <p class="text-muted small mb-0"><?php
+$timestamp = strtotime($row['thoigian_binhluan']);
+$formatted_time = date("H:i d/m/Y", $timestamp);
+echo $formatted_time;
+?>
+</p>
                     </div>
                   </div>
 
                   <p class="mt-3 mb-4 pb-2">
-                 Đồng hồ đẹp quá ! Có quá đáng lắm không nếu em tặng anh
+                  <?= $row['binhluan_binhluan'] ?>
                   </p>
 
                   <div class="small d-flex justify-content-start">
@@ -100,18 +107,44 @@
                     
                       <p class="mb-0"> <i class="fas fa-share me-2"></i>Chia sẻ</p>
                     </a>
+                    <?php
+// Kiểm tra vai trò người dùng
+if ($_SESSION['vaitro'] == 'khachhang') {
+    // Kiểm tra nếu ID của người dùng khớp với ID trong $row
+    if ($_SESSION['id'] == $row['id_taikhoan']) {
+        echo '<a href="?act=xoabinhluan&id=' . $row['id_binhluan'] . '&idsp=' . $row['id_sanpham_binhluan'] . '" class="d-flex align-items-center me-3">
+                <p class="mb-0"><i class="fas fa-trash me-2"></i>Xóa bình luận</p>
+              </a>';
+    }
+} 
+if ($_SESSION['vaitro'] === 'admin' || $_SESSION['vaitro'] === 'nhanvien') {
+    // Nếu vai trò là admin hoặc nhân viên
+    echo '<a href="?act=xoabinhluan&id=' . $row['id_binhluan'] . '&idsp=' . $row['id_sanpham_binhluan'] . '" class="d-flex align-items-center me-3">
+            <p class="mb-0"><i class="fas fa-trash me-2"></i>Xóa bình luận</p>
+          </a>';
+} 
+?>
+
                   </div>
-            
-                </div>
-              <div id="commentsContainer"></div>
-              <div class="card-footer py-3 border-0">
-                <div class="d-flex flex-start w-100">
-                <div class="avatar" style="width:40px;height:40px;">
-                             <img class="rounded-circle shadow-1-strong me-3" src="./image/thiet-ke-galaxy-fit-3.jpg" alt="avatar" />
-                       </div>
-                  <div class="form-outline w-100">
-                    <textarea id="commentText" class="form-control" id="textAreaExample" rows="4" placeholder="Message" style="background: #fff;"></textarea>
-                  </div>
+              
+                </div><?php } ?>
+                <div id="commentsContainer"></div>
+<div class="card-footer py-3 border-0">
+  <div class="d-flex flex-start w-100">
+    <div class="avatar" style="width:40px;height:40px;">
+      <img class="rounded-circle shadow-1-strong me-3" src="./image/<?= $_SESSION['anh'] ?>" alt="avatar" />
+    </div>
+
+    <div class="form-outline w-100">
+    <form method="post" id="commentForm" onsubmit="return submitForm(event)">
+    <textarea name="binhluan" id="commentText" class="form-control" rows="4" 
+        placeholder="Message" style="background: #fff;" 
+        onkeydown="checkEnter(event)"></textarea>
+</form>
+    </div>
+  </div>
+</div>
+
                 </div>
               </div>  
             </div>
@@ -125,40 +158,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   </body>
-  </html><script>
-  document.getElementById("commentText").addEventListener("keypress", function (event) {
+  </html>
+  <script>
+        // Lưu vị trí cuộn trước khi tải lại
+        window.addEventListener('beforeunload', function () {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        });
+
+        // Khôi phục vị trí cuộn sau khi trang tải xong
+        window.addEventListener('load', function () {
+            const scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition));
+            }
+        });
+    </script> 
+    
+<script>
+function checkEnter(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      const commentText = document.getElementById("commentText").value;
-      if (commentText.trim() === "") {
-        alert("Vui lòng nhập bình luận.");
-        return;
-      }
-      const commentDiv = document.createElement("div");
-      commentDiv.classList.add("card-body");
-      commentDiv.innerHTML = `
-        <div class="d-flex flex-start align-items-center">
-          <div class="avatar">
-                             <img class="rounded-circle shadow-1-strong me-3" src="./image/thiet-ke-galaxy-fit-3.jpg" alt="avatar" />
-                       </div>
-          <div>
-            <h6 class="fw-bold text-primary mb-1">Cường</h6>
-            <p class="text-muted small mb-0">Vừa xong</p>
-          </div>
-        </div>
-        <p class="mt-3 mb-4 pb-2">${commentText}</p>
-        <div class="small d-flex justify-content-start">
-          <a href="#!" class="d-flex align-items-center me-3">
-            <p class="mb-0">Chỉnh sửa</p>
-          </a>
-          <a href="#!" class="d-flex align-items-center me-3">
-            <p class="mb-0">Xóa</p>
-          </a>
-          
-        </div>
-      `;
-      document.getElementById("commentsContainer").appendChild(commentDiv);
-      document.getElementById("commentText").value = "";
+        event.preventDefault(); // Ngăn xuống dòng
+        document.getElementById("commentForm").submit(); // Gửi form
     }
-  });
+}
+
+function submitForm(event) {
+    return true; // PHP xử lý tại đây
+}
 </script>

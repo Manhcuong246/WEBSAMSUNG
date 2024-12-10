@@ -30,7 +30,7 @@ body{
 
 </style>
 
-<?php require_once "header.php";
+<?php require_once(__DIR__ . '/../viewhome/header.php');
 require_once "showsanpham.php" 
 
 

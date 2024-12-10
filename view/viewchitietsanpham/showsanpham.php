@@ -538,6 +538,73 @@
     .radio-option:hover {
         border-color: #007bff;
     }
+    .vungsoluong{
+        transform: translate(0,-20px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .vungsoluong2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.close-btn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 </style>
 <?php
 $result = [];
@@ -592,7 +659,8 @@ foreach ($detail as $item) {
                             </div>
                         </div>
                         <div class="btnbuttonaddcart col-6">
-                            <button class="btnaddcart btn btn-primary">Thêm vào giỏ hàng</button>
+                        <form method="POST">
+                            <button name="dathang" type="submit" class="btnaddcart btn btn-primary" style="width:200px;margin-top:20px;">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -604,7 +672,7 @@ foreach ($detail as $item) {
                     <div class="container ">
                         <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-
+                            <form method="POST">
 
                                 <?php
                                 $image = explode(';', $detail[0]['anhslideshow_sanpham']);
@@ -678,14 +746,14 @@ foreach ($detail as $item) {
 
                                             <p style="font-size: 15px;"> Màu Sắc : <span class="textcolor" id="colorName" style="font-family: 'SamsungOne400', arial, sans-serif;">Hãy chọn!</span>
                                             </p>
-                                            <form action="/submit-color" method="POST">
+                                          
                                                 <div class="d-flex flex-wrap my-3">
                                                     <?php $colorNames = $result[$detail[0]['id_sanpham']]['mausac_sanphamtext'];
                                                     $imgcolor = $result[$detail[0]['id_sanpham']]['images'];
                                                     foreach ($result as $product) {
                                                         foreach ($product['mausac_sanpham'] as $index => $color) {
                                                             echo '<label class="color-option">
-             <input type="radio" name="color" value="' . $color . '" data-color-name="' . $colorNames[$index] . '" data-color-img ="' . htmlspecialchars($imgcolor[$index], ENT_QUOTES, 'UTF-8') . '" required>
+             <input type="radio" name="color" value="' . $colorNames[$index] . '" data-color-name="' . $colorNames[$index] . '" data-color-img ="' . htmlspecialchars($imgcolor[$index], ENT_QUOTES, 'UTF-8') . '" required>
             <div class="colorbutton" style="background-color:' . $color . ';"></div>
           </label>';
                                                         }
@@ -704,7 +772,7 @@ foreach ($detail as $item) {
                     <?php
                     $luachon = explode(";", $detail[0]["cacluachonbienthe_sanpham"]);
                     foreach ($luachon as $index => $luachon) { ?>
-                        <div class="radio-option" name="bienthe" value="<?= $luachon ?>" data-value="option<?= $index ?>" onclick="selectOption('option<?= $index ?>')"><?= $luachon ?></div>
+                        <div class="radio-option" name="bienthe" value="<?= $luachon ?>" data-value="option<?= $index ?>" onclick="selectOption('<?= $luachon ?>')"><?= $luachon ?></div>
                     <?php } ?>
                 </div>
                 <input type="hidden" name="selected_option" id="selected_option" />
@@ -826,8 +894,15 @@ foreach ($detail as $item) {
                                                                 <?php }  ?>
 
 
+                                                                <div class="mb-3 vungsoluong"  >
+                                                                <div class="d-flex vungsoluong2">
+  <span>Số lượng</span>
+  <input type="number" class="form-control" name="soluong" style="width:30%;margin-left:10px;border-radius:30px;" value="1" min="1">
+</div>
 
-                                                                <button type="submit" class="btnaddcart2 btn ">Thêm vào giỏ hàng</button>
+</div>
+
+                                                                <button type="submit" name="dathang" class="btnaddcart2 btn " style=" transform: translate(0,-20px);">Thêm vào giỏ hàng</button> </form>
                                                             </div>
 
                                                         </div>
@@ -835,7 +910,7 @@ foreach ($detail as $item) {
 
                                                 </div>
 
-                                            </form>
+                                           
                                         </div>
                                     </div>
 
@@ -858,6 +933,46 @@ foreach ($detail as $item) {
 require_once "./view/viewchitietsanpham/comment.php";
 require_once "./view/viewhome/footer.php" ?>
 <script>
+ // Kiểm tra tham số trong URL
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('thanhcong') === 'true') {
+  // Hiển thị popup thông báo thành công
+  showSuccessPopup();
+}
+
+function showSuccessPopup() {
+  // Tạo một div chứa popup
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+
+  // Tạo một div phủ toàn màn hình để tối đi các phần khác
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+
+  // Tạo nội dung của popup
+  const popupContent = document.createElement('div');
+  popupContent.classList.add('popup-content');
+  popupContent.innerHTML = `
+    <h3>Thành công!</h3>
+    <p>Thao tác của bạn đã được thực hiện thành công.</p>
+  `;
+
+  // Thêm popup và overlay vào DOM
+  popup.appendChild(popupContent);
+  document.body.appendChild(overlay);
+  document.body.appendChild(popup);
+
+  // Thêm sự kiện click vào overlay để đóng popup
+  overlay.addEventListener('click', () => {
+    popup.remove();
+    overlay.remove();
+  });
+
+  // Thêm hiệu ứng khi xuất hiện
+  popup.classList.add('show');
+  overlay.classList.add('show');
+}
+
     document.querySelectorAll('input[name="color"]').forEach(input => {
         input.addEventListener('change', function() {
             const colorName = this.getAttribute('data-color-name');
@@ -916,7 +1031,7 @@ require_once "./view/viewhome/footer.php" ?>
         options.forEach(opt => opt.classList.remove('selected'));
 
         // Mark selected option
-        const selectedOption = document.querySelector(`.radio-option[data-value="${option}"]`);
+        const selectedOption = document.querySelector(`.radio-option[value="${option}"]`);
         selectedOption.classList.add('selected');
 
         // Update hidden input value
