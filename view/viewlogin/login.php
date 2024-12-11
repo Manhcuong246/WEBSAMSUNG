@@ -19,6 +19,7 @@ function scrollToCenter() {
     
     const centerPosition = (pageHeight - windowHeight) / 2; 
     window.scrollTo(0, centerPosition);
+    
 }
 
 
@@ -193,7 +194,7 @@ window.onload = scrollToCenter;
         }
     </style>
 
-<body>
+<body> 
     <div class="container-fluid">
         <div class="row">
             <div class="header">
@@ -204,24 +205,31 @@ window.onload = scrollToCenter;
                     <div class="form ">
                         <div class="containerform">
                             <div class="title">
-                                Một tài khoản. Mọi thiết bị. Chỉ dành cho bạn. Đăng nhập để bắt đầu.
+                                Một tài khoản. Mọi thiết bị. Chỉ dành cho bạn. Đăng nhập để bắt đầu.<br>
+                                <?php
+if (isset($_GET['success']) && $_GET['success'] === 'true') {
+    echo '<p style="font-size: 20px; color: greenyellow;">Tạo tài khoản thành công, vui lòng đăng nhập!</p>';
+}
+?>
+
                             </div>
+                           
                             <div class="formlogin">
-                                <form>
+                                <form method="post">
                                     <div class="form-group ">
                                         <label class="textlogin" >Tài khoản</label>
-                                        <input style="margin-bottom:40px;" type="email" class="form-control"  aria-describedby="emailHelp">
+                                        <input autocomplete="off" style="margin-bottom:40px;" name='user' type="text" class="form-control"  aria-describedby="emailHelp">
 
                                     </div>
                                     <div class="form-group">
                                         <label class="textlogin" for="exampleInputPassword1">Mật khẩu</label>
-                                        <input style="margin-bottom:20px;" type="password" class="form-control" id="exampleInputPassword1">
+                                        <input  autocomplete="off" style="margin-bottom:20px;" name='pass' type="password" class="form-control" id="exampleInputPassword1">
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <input  autocomplete="off"type="checkbox" class="form-check-input" id="exampleCheck1">
                                         <label style="font-size: 16px;" class="textlogin" class="form-check-label" for="exampleCheck1">Nhớ ID của tôi</label>
                                     </div>
-                                    <button type="submit" class="submitbtn btn btn-primary">Đăng nhập</button>
+                                    <button type="submit"  name='login' class="submitbtn btn btn-primary">Đăng nhập</button>
                                 </form>
                             </div>
                             <div class="signup">

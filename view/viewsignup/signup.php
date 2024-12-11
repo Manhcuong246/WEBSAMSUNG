@@ -13,17 +13,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-function scrollToCenter() {
-    const pageHeight = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
-    
-    const centerPosition = (pageHeight - windowHeight) / 2; 
-    window.scrollTo(0, centerPosition);
-}
+        function scrollToCenter() {
+            const pageHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
+
+            const centerPosition = (pageHeight - windowHeight) / 2;
+            window.scrollTo(0, centerPosition);
+        }
 
 
-window.onload = scrollToCenter;
-</script>
+        window.onload = scrollToCenter;
+    </script>
     <style>
         .header {
             height: 80px;
@@ -42,7 +42,7 @@ window.onload = scrollToCenter;
             align-items: center;
         }
 
-      
+
 
         @font-face {
             font-family: 'SamsungOne';
@@ -70,7 +70,7 @@ window.onload = scrollToCenter;
         .form {
             background-color: #161716;
             width: 45%;
-            height: 80%;
+            height: 90%;
             border-radius: 20px;
             display: flex;
             justify-content: center;
@@ -88,10 +88,10 @@ window.onload = scrollToCenter;
         .containerform {
             width: 70%;
             height: 90%;
-        
+
 
         }
-      
+
         .textlogin {
             position: absolute;
             font-family: roboto;
@@ -100,10 +100,11 @@ window.onload = scrollToCenter;
             float: left;
             pointer-events: none;
         }
-   
-    .form-group label{
-        transition: tranform 0.5s ease;
-    }
+
+        .form-group label {
+            transition: tranform 0.5s ease;
+        }
+
         .form-group input {
             border-radius: 0;
             border-top: 1px;
@@ -115,16 +116,16 @@ window.onload = scrollToCenter;
             padding-left: 30%;
         }
 
-        .form-group input:focus  {
+        .form-group input:focus {
             color: #ADD8E6;
             background-color: unset;
             box-shadow: none;
         }
 
-        .form-group label { 
-        transition: all 0.12s ease;
-               }
-    
+        .form-group label {
+            transition: all 0.12s ease;
+        }
+
 
         .form-check input {
             background-color: #161716;
@@ -133,25 +134,28 @@ window.onload = scrollToCenter;
         .form-check input:focus {
             box-shadow: none;
         }
-        .form-group:focus-within label{
-    color: #ADD8E6;
-    font-size: 13px;
-    transform: translate(0, -100%);
-}
 
-        .signup p{
-              color:#D3D3D3 ;
-              font-size: 14px;
-              line-height: 15px;
-             
+        .form-group:focus-within label {
+            color: #ADD8E6;
+            font-size: 13px;
+            transform: translate(0, -100%);
         }
+
+        .signup p {
+            color: #D3D3D3;
+            font-size: 14px;
+            line-height: 15px;
+
+        }
+
         .signup {
-           margin-top: 30px;
-           margin-bottom: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
-        .signup a{
-          color: #D3D3D3;
-             
+
+        .signup a {
+            color: #D3D3D3;
+
         }
 
         .header img {
@@ -159,11 +163,13 @@ window.onload = scrollToCenter;
             width: auto;
 
         }
-        .buttonsubmit{
-          display: flex;
-          justify-content: space-between;
-             gap:4%;    
+
+        .buttonsubmit {
+            display: flex;
+            justify-content: space-between;
+            gap: 4%;
         }
+
         .submitbtn {
             transition: all 0.1s ease;
             color: white;
@@ -171,69 +177,82 @@ window.onload = scrollToCenter;
             margin-top: 20px;
             width: 50%;
             border-radius: 20px;
-            height: 45px;  
+            height: 45px;
             background-color: gray;
 
         }
-        .submitbtn:hover {    
-            color: white;      
+
+        .submitbtn:hover {
+            color: white;
             background-color: #707070;
 
         }
-        .submitbtn2{
+
+        .submitbtn2 {
             transition: all 0.1s ease;
             margin-top: 20px;
             width: 50%;
             border-radius: 20px;
             height: 45px;
         }
-       
     </style>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="header">
-                <a href="?act=/"><img  src="./image/Untitled.png" alt="Logo" class="img-fluid"></a>
+                <a href="?act=/"><img src="./image/Untitled.png" alt="Logo" class="img-fluid"></a>
             </div>
             <div class="content ">
                 <div class="body row" style="width:100%;height:100%;">
                     <div class="form ">
                         <div class="containerform">
                             <div class="title">
-                            Tạo tài khoản Samsung của bạn
+                                Tạo tài khoản Samsung của bạn
                             </div>
                             <div class="formlogin">
-                                <form>
+                                <form method="post" enctype="multipart/form-data">
                                     <div class="form-group ">
                                         <label class="textlogin" for="exampleInputEmail1">Tài khoản</label>
-                                        <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
+                                        <input autocomplete="off" id= "user"name="user" style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 
                                     </div>
                                     <div class="form-group">
                                         <label class="textlogin" for="exampleInputPassword1">Mật khẩu</label>
-                                        <input style="margin-bottom:40px;" type="password" class="form-control" id="exampleInputPassword1" require  >
+                                        <input autocomplete="off"  name="pass" style="margin-bottom:40px;" type="password" class="form-control" id="exampleInputPassword1" required>
                                     </div>
                                     <div class="form-group ">
                                         <label class="textlogin" for="exampleInputEmail1">Họ và tên</label>
-                                        <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
+                                        <input  autocomplete="off" name="name" style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 
                                     </div>
                                     <div class="form-group ">
                                         <label class="textlogin" for="exampleInputEmail1">Email</label>
-                                        <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
+                                        <input autocomplete="off"  name="email" style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                                     </div>
                                     <div class="form-group ">
                                         <label class="textlogin" for="exampleInputEmail1">Số điện thoại</label>
-                                        <input style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" require>
+                                        <input  autocomplete="off" name="sdt" style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                                     </div>
-                                      <div class="buttonsubmit">   <button onclick="window.location.href='?act=login'" type="button" class="submitbtn btn">Trở về</button> <button type="submit" class="submitbtn2 btn btn-primary">Tạo tài khoản</button></div>
-                                 
-                                    
+                                    <div class="form-group ">
+                                        <label class="textlogin" for="exampleInputEmail1">Địa chỉ</label>
+                                        <input  autocomplete="off" name="diachi" style="margin-bottom:40px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                    </div>
+                                                 <input
+                                            type="file"
+                                            class="form-control"
+                                            id="img" name="img" 
+                                          
+                                          >
+                               
+
+                                    <div class="buttonsubmit"> <button onclick="window.location.href='?act=login'" type="button" class="submitbtn btn">Trở về</button> <button id="submitButton"  type="submit" name='signup' class="submitbtn2 btn btn-primary">Tạo tài khoản</button></div>
+
+
                                 </form>
                             </div>
-                           
-            
+
+
                         </div>
                     </div>
 
@@ -242,3 +261,60 @@ window.onload = scrollToCenter;
         </div>
     </div>
 </body>
+<?php $usernames = array_map(function($item) {
+    return $item['taikhoan_taikhoan'];
+}, $taikhoan); ?>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const usernameInput = document.getElementById("user");
+            const submitButton = document.getElementById("submitButton");
+
+          
+            const existingAccounts = <?php echo json_encode($usernames); ?>;
+
+            usernameInput.addEventListener("input", function () {
+                const userInput = usernameInput.value.trim();
+                const isDuplicate = existingAccounts.includes(userInput);
+
+                if (isDuplicate) {
+                    usernameInput.style.borderColor = "red"; 
+                    usernameInput.setCustomValidity("Tài khoản đã tồn tại");
+                    usernameInput.reportValidity(); 
+                    submitButton.disabled = true;
+                } else {
+                    usernameInput.style.borderColor = ""; 
+                    usernameInput.setCustomValidity("");
+                    submitButton.disabled = false;
+                }
+            });
+        });
+    </script>
+    
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const inputs = form.querySelectorAll("input[required]");
+        const submitButton = document.querySelector("#submitButton");
+
+        function checkInputs() {
+            let allFilled = true;
+            inputs.forEach((input) => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+         
+            submitButton.disabled = !allFilled;
+        }
+
+      
+        inputs.forEach((input) => {
+            input.addEventListener("input", checkInputs);
+        });
+
+     
+        checkInputs();
+    });
+</script>
